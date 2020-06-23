@@ -59,6 +59,13 @@ const rows = [
         sort          : true
     },
     {
+        id            : 'contenu',
+        align         : 'left',
+        disablePadding: false,
+        label         : 'Ajouter contenu',
+        sort          : true
+    },
+    {
         id            : 'modifier',
         align         : 'left',
         disablePadding: false,

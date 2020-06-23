@@ -3,6 +3,7 @@ package com.example.CapAcademy.Controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
@@ -49,7 +50,7 @@ public static int LastIdValue = 0 ;
 		}
 		
 		@RequestMapping(value="/Formateur/{id}" , method=RequestMethod.DELETE)
-		public Boolean deleteContact(@PathVariable Long id ) {
+		public Boolean deleteFormateur(@PathVariable Long id ) {
 			
 			 FR.deleteById(id) ;
 			 return true ; 

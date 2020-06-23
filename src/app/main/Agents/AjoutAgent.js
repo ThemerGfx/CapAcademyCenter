@@ -205,13 +205,13 @@ class AjoutAgent extends Component {
                             </div>
                         </div>
                 }
-                contentToolbar={
-                    <div className="px-24"> 
-                        <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                            <h4> Nouvel Agent </h4>
-                        </FuseAnimate>
-                    </div>
-                }
+                // contentToolbar={
+                //     <div className="px-24"> 
+                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
+                //             <h4> Nouvel Agent </h4>
+                //         </FuseAnimate>
+                //     </div>
+                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>

@@ -15,14 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.CapAcademy.Repositories.AgentRepository;
 import com.example.CapAcademy.models.Agent;
+
 @RestController
 @CrossOrigin(origins ="*")
-
-	
 public class AgentController {
-
-
-
 
 	@Autowired
 	private AgentRepository ag ; 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.CapAcademy.Repositories.ContenuRepository;
 import com.example.CapAcademy.Repositories.FormateurRepository;
 import com.example.CapAcademy.Repositories.FormationRepository;
 import com.example.CapAcademy.models.Formateur;
@@ -25,6 +26,7 @@ public class FormationController {
 private	FormationRepository FR ;
 	
 
+ 
 	
 
 	
@@ -47,6 +49,7 @@ private	FormationRepository FR ;
 		public Boolean deleteFormateur(@PathVariable Long id ) {
 			
 			 FR.deleteById(id) ;
+		
 			 return true ; 
 		}
 	 

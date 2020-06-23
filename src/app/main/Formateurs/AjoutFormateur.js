@@ -9,7 +9,7 @@ import {
 import {FuseAnimate, FusePageCarded} from '@fuse';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import axios from 'axios';
+import axios, { post } from 'axios';
 
 import { createFormateur } from '../../store/actions/FormateurActions/FormateurActions'
 
@@ -22,7 +22,8 @@ class AjoutFormateur extends Component {
         phone: '',
         specialite: '',
         file: null,
-        disabled: false
+        disabled: false,
+        files: []
     }; 
 
     handleChange = (e) => {
@@ -45,12 +46,13 @@ class AjoutFormateur extends Component {
             
             this.props.createFormateur(this.state)
             console.log(this.state.file)
+            let file = this.state.file
 
             setTimeout(() => {
-            this.uploadFile()
+            this.uploadFile(file)
             }, 2000)
 
-            console.log('yess ajout formateur')
+            // console.log('yess ajout formateur')
 
             this.setState({
                 id: '',
@@ -63,20 +65,27 @@ class AjoutFormateur extends Component {
         }
     }
 
-    uploadFile = () =>{
-        let fileUp = this.state.file
+    uploadFile = (file) =>{
+        // const fileUp = this.state.file
 
-        console.log( fileUp )
+        // console.log( fileUp )
+        const url = "http://localhost:8080/UploadF"
 
-        let data = new FormData();
-        data.append('file', fileUp )
-    
-        axios.post("http://localhost:8080/UploadF", 
-            {"data": {"file": fileUp}},
-            {"headers": {"Content-Type": "multipart/form-data"}}
-        ).then(res => { 
-            console.log(res)
-        })
+        const formData = new FormData();
+        formData.append("file", file)
+
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        return post(url, formData, config)
+
+        // axios.post("http://localhost:8080/UploadF", formData, config)
+        // .then(res => { 
+        //     console.log(res)
+        // })
     }
 
     handleChangeUpload = (e) => {
@@ -84,9 +93,9 @@ class AjoutFormateur extends Component {
           console.log(filesUp)
           this.setState({file: filesUp});
 
-        setTimeout(() => {
-            console.log(this.state.file)
-        }, 1000)
+        // setTimeout(() => {
+        //     console.log(this.state.files)
+        // }, 1000)
     }
 
     
@@ -133,13 +142,13 @@ class AjoutFormateur extends Component {
                             </div>
                         </div>
                 }
-                contentToolbar={
-                    <div className="px-24"> 
-                        <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                            <h4> Nouveau Formateur </h4>
-                        </FuseAnimate>
-                    </div>
-                }
+                // contentToolbar={
+                //     <div className="px-24"> 
+                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
+                //             <h4> Nouveau Formateur </h4>
+                //         </FuseAnimate>
+                //     </div>
+                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>
@@ -200,6 +209,7 @@ class AjoutFormateur extends Component {
                                     <Input 
                                         type="file" 
                                         onChange={this.handleChangeUpload}
+                                        name="file"
                                     />
                                     {/* <Button 
                                         variant="contained" 

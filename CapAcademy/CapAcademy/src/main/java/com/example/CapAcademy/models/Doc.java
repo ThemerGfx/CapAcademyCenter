@@ -19,7 +19,7 @@ public class Doc implements Serializable {
 	
 	
 	@Id
-	public int id ;
+	public Long id ;
 	
 	
 	public String docName ; 
@@ -27,11 +27,11 @@ public class Doc implements Serializable {
 	
 
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -61,7 +61,7 @@ public class Doc implements Serializable {
 	
 	}
 
-	public Doc(int id, String docName, String docType) {
+	public Doc(long id, String docName, String docType) {
 		super();
 		this.id = id;
 		this.docName = docName;

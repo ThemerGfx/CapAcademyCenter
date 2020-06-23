@@ -8,9 +8,15 @@ export const AjoutFormationConfig = {
     },
     routes  : [
         {
-            path     : '/ajout-formation/:agentId?',
+            path     : '/ajout-formation/:formationId?',
             component: FuseLoadable({
                 loader: () => import('./AjoutFormation')
+            })
+        },        
+        {
+            path     : '/ajout-contenu/:contenuId?',
+            component: FuseLoadable({
+                loader: () => import('./AjoutContenu')
             })
         },
         {

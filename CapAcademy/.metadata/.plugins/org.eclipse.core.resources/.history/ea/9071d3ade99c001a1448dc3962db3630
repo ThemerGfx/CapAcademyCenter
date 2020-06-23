@@ -1,0 +1,11 @@
+package com.example.CapAcademy.models;
+
+public class Formation {
+
+	
+	private int id  ; 
+	private String nom ;
+	Private String prenom ;
+	Private 
+	
+}

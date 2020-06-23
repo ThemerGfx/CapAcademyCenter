@@ -6,6 +6,7 @@ import quickPanel from 'app/fuse-layouts/shared-components/quickPanel/store/redu
 import agentReducer from './AgentReducers/AgentReducers'
 import formateurReducer from './FormateurReducers/FormateurReducers'
 import formationReducer from './FormationReducers/FormationReducers'
+import contenuReducer from './ContenuReducers/ContenuReducers'
 import authReducers from '../../auth/store/reducers/index'
 
 const createReducer = (asyncReducers) =>
@@ -17,6 +18,7 @@ const createReducer = (asyncReducers) =>
         agentReducer,
         formateurReducer,
         formationReducer,
+        contenuReducer,
         authReducers
     });
 

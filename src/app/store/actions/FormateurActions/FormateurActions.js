@@ -79,3 +79,34 @@ export const getAllFormateursSuccess = (allFormateurs) => (
     payload: allFormateurs
   }
 )
+
+export const getCv = (id) => {
+  return (dispatch) => {
+    // const method = 'GET';
+    // const url = "http://localhost:8080/GetCvById/" + id;
+
+    // axios.request({
+    //     url,
+    //     method,
+    //     responseType: 'blob', //important
+    //   })
+    //   .then(({ data }) => {
+    //     const downloadUrl = url;
+    //     const link = document.createElement('a');
+
+    //     link.href = downloadUrl;
+    //     console.log(downloadUrl);
+    //    // link.setAttribute('download', 'file.zip'); //any other extension
+
+    //     document.body.appendChild(link);
+
+    //     link.click();
+    //     link.remove();
+    //   });
+    axios.get("http://localhost:8080/file/" + id)
+    .then((res) => 
+      console.log(res)
+    )
+    .catch((err) => console.log("error fetching cv: ", err))
+  };
+}

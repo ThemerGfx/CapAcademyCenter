@@ -12,7 +12,6 @@ export const createAgent = (agent) => {
               allAgents: [...allAgents, {...agent}]
             }
         }
-          console.log(agent)
         })
         .then(() => {
           dispatch({

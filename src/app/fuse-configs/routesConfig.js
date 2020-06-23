@@ -6,13 +6,15 @@ import {AjoutFormateurConfig} from '../main/Formateurs/AjoutFormateurConfig'
 import {LoginConfig} from '../auth/LoginConfig'
 import {Register2PageConfig} from '../auth/Register2PageConfig'
 import {AjoutFormationConfig} from '../main/Formations/AjoutFormationConfig'
+import {ContenuConfig} from '../main/Contenu/ContenuConfig'
 
 const routeConfigs = [
+    LoginConfig,
+    Register2PageConfig,
     AjoutAgentConfig,
     AjoutFormateurConfig,
     AjoutFormationConfig,
-    LoginConfig,
-    Register2PageConfig
+    ContenuConfig
 ];
 
  const routes = [

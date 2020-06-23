@@ -1,0 +1,38 @@
+package com.example.CapAcademy.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.example.CapAcademy.Repositories.FormateurRepository;
+
+public class FormateurController {
+
+
+	@Autowired
+	private FormateurRepository Formation ;
+
+	@RequestMapping(value="/Formation", method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Object> uploadFile(@RequestParam("file") MultipartFile file ) throws IOException {
+
+		File convertFile = new File("C:\\Users\\hp\\Desktop\\CapAcademy\\CapAcademy\\Container\\"+file.getOriginalFilename());
+		
+	
+
+		
+		convertFile.createNewFile();
+		FileOutputStream fout = new FileOutputStream(convertFile);
+		fout.write(file.getBytes());
+		fout.close();
+		a.setCodeCV(file.getOriginalFilename());
+		Formation.save(a);
+		return new ResponseEntity<>("File is uploaded successfully", HttpStatus.OK);
+	}
+*/
+	
+	
+	
+	
+}

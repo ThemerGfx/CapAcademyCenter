@@ -20,7 +20,12 @@ import { format } from 'date-fns/fp';
 
 import { createFormation, updateFormaion } from '../../store/actions/FormationActions/FormationActions'
 
+import { getAllFormateurs } from '../../store/actions/FormateurActions/FormateurActions'
+
 const types = [
+    {
+        name: 'Aucune sélection'
+    },
     {
         name: 'pro'
     },
@@ -49,6 +54,7 @@ class AjoutFormation extends Component {
 
     componentDidMount()
     {
+        this.props.getAllFormateurs()
         this.updateFormationState();
         console.log('je trouve', this.props.formationItem)
     }
@@ -62,7 +68,7 @@ class AjoutFormation extends Component {
         if ( formationId === 'edit')
         { const {formationItem} = this.props
         this.setState({
-            id: formationId,
+            id: formationItem.id,
             name: formationItem.name,
             formateur: formationItem.formateur,
             prix: formationItem.prix,
@@ -92,7 +98,7 @@ class AjoutFormation extends Component {
         else 
         {   const {formationItem} = this.props
             this.setState({
-                id: formationId,
+                id: formationItem.id,
                 name: formationItem.name,
                 formateur: formationItem.formateur,
                 prix: formationItem.prix,
@@ -115,6 +121,8 @@ class AjoutFormation extends Component {
                 formateur,
                 type
             } = this.state
+            
+
             
             this.props.createFormation(this.state)
 
@@ -178,7 +186,7 @@ class AjoutFormation extends Component {
                             <div>
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
                             {
-                                    this.props.match.params.agentId === 'add' ? (
+                                    this.props.match.params.formationId === 'add' ? (
                                 <Button
                                     className="whitespace-no-wrap"
                                     variant="contained"
@@ -201,13 +209,13 @@ class AjoutFormation extends Component {
                             </div>
                         </div>
                 }
-                contentToolbar={
-                    <div className="px-24"> 
-                        <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                            <h4> Nouveau Formateur </h4>
-                        </FuseAnimate>
-                    </div>
-                }
+                // contentToolbar={
+                //     <div className="px-24"> 
+                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
+                //             <h4> Nouvelle Formation </h4>
+                //         </FuseAnimate>
+                //     </div>
+                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>
@@ -223,20 +231,21 @@ class AjoutFormation extends Component {
                                         multiline
                                         variant="outlined"
                                         fullWidth
+                                        required
                                     />
                                     </FuseAnimate>
                                     <FuseAnimate animation="transition.bounceUpIn" delay={800}>
                                     <TextField  
                                         value={this.state.dateDebt}
                                         id="dateDebt"
-                                        label="Date début"        
                                         onChange={this.handleChange}
                                         variant="outlined"
                                         margin="normal" 
-                                        type="text"
+                                        type="date"
                                         className="mt-8 mb-16"   
                                         name="dateDebt"
                                         fullWidth
+                                        required
                                     />
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={600}>
@@ -245,11 +254,11 @@ class AjoutFormation extends Component {
                                         id="dateFin"
                                         name="dateFin"
                                         onChange={this.handleChange}
-                                        label="Date fin"
-                                        type="text"
+                                        type="date"
                                         value={this.state.dateFin}
                                         variant="outlined"
                                         fullWidth
+                                        required
                                     />
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={400}>
@@ -263,6 +272,7 @@ class AjoutFormation extends Component {
                                         value={this.state.prix}
                                         variant="outlined"
                                         fullWidth
+                                        required
                                     />
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={400}>
@@ -287,6 +297,9 @@ class AjoutFormation extends Component {
                                                 onChange={this.handleChange}
                                                 variant="outlined"
                                             >
+                                                  <option  selected='true'>
+                                                            Aucune selection
+                                                        </option>
                                                 {
                                                     this.props.allFormateurs.map((formateur, index) => {
                                                         return (
@@ -356,4 +369,4 @@ const mapStateToProps = (state) => {
     }
   }
 
-export default connect(mapStateToProps, { createFormation, updateFormaion })(AjoutFormation);
+export default connect(mapStateToProps, { createFormation, updateFormaion, getAllFormateurs })(AjoutFormation);

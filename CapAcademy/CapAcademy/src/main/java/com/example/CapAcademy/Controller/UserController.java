@@ -24,14 +24,14 @@ public class UserController {
 	@Autowired
 	UserRepository Us ;
 	
-	@RequestMapping(value="/Login/{email}/{password}" , method=RequestMethod.POST)
-		public User LoginUser( @PathVariable String email ,@PathVariable  String password) {
-		 User user = new User() ; 
-		 int size = Us.findUser(email, password).size() ; 
+	 @GetMapping(value = "/Login/{email}/{pass}", produces = MediaType.APPLICATION_JSON_VALUE)
+		public User LoginUser( @PathVariable String email ,@PathVariable  String pass) {
+			User user = new User() ; 
+		 int size = Us.findUser(email, pass).size() ; 
 		 if (size == 0)
 		 {return user;}
 		 else 
-		 {return Us.findUser(email, password).get(0);}
+		 {return Us.findUser(email, pass).get(0);}
 		 
 	 
 	 
@@ -51,8 +51,7 @@ public class UserController {
 		@RequestMapping(value="/AddUser" , method=RequestMethod.POST)
 		public User Save(@RequestBody User c ) {
 			c.setEtat("not valided");
-		
-		return Us.save(c) ;
+			return Us.save(c) ;
 		}
 
 }

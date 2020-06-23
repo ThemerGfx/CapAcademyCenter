@@ -1,0 +1,9 @@
+package com.example.CapAcademy.Repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.CapAcademy.models.contenu;
+
+public interface ContenuRepository extends JpaRepository<contenu,Long>{
+
+}

@@ -50,6 +50,13 @@ const rows = [
         disablePadding: false,
         label         : 'Supprimer',
         sort          : true
+    },
+    {
+        id            : 'download',
+        align         : 'left',
+        disablePadding: false,
+        label         : 'Download',
+        sort          : true
     }
 ];
 

@@ -97,10 +97,6 @@ class FormationsTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
-                                                    {formation.formateur}
-                                                </TableCell>
-
-                                                <TableCell component="td" scope="row" align="left">
                                                     {formation.dateDebt}
                                                 </TableCell>
 
@@ -113,7 +109,45 @@ class FormationsTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
+                                                    {formation.formateur}
+                                                </TableCell>
+
+                                                <TableCell component="td" scope="row" align="left">
                                                     {formation.type}
+                                                </TableCell>
+
+                                                <TableCell>
+                                                    <Fab 
+                                                        color="blue"
+                                                        variant="contained"
+                                                        className="text-blue color-blue"
+                                                        onClick = { () => { 
+                                                            this.props.selectFormation(formation) }} 
+                                                        component={Link} to={'/ajout-contenu/' + formation.id + '/' + formation.name }
+                                                    >      
+                                                        <Icon 
+                                                            aria-label="add"
+                                                        >
+                                                            add
+                                                        </Icon>
+                                                    </Fab>
+                                                </TableCell>
+
+                                                <TableCell>
+                                                    <Fab 
+                                                        color="blue"
+                                                        variant="contained"
+                                                        // className="text-blue color-blue"
+                                                        onClick = { () => { this.props.selectFormation(formation) } } 
+                                                        // className="text-blue color-blue"
+                                                        component={Link} to={'/ajout-formation/' + formation.id }
+                                                    >      
+                                                        <Icon 
+                                                            aria-label="edit"
+                                                        >
+                                                            edit
+                                                        </Icon>
+                                                    </Fab>
                                                 </TableCell>
 
                                                 <TableCell>
@@ -127,22 +161,6 @@ class FormationsTable extends Component {
                                                             aria-label="delete"
                                                         >
                                                             delete
-                                                        </Icon>
-                                                    </Fab>
-                                                </TableCell>
-                                                <TableCell>
-                                                    <Fab 
-                                                        color="default"
-                                                        variant="contained"
-                                                        className="text-blue color-blue"
-                                                        onClick = { () => { this.props.selectFormation(formation) } } 
-                                                        className="text-blue color-blue"
-                                                        component={Link} to={'/ajout-formation/' + formation.id }
-                                                    >      
-                                                        <Icon 
-                                                            aria-label="edit"
-                                                        >
-                                                            edit
                                                         </Icon>
                                                     </Fab>
                                                 </TableCell>

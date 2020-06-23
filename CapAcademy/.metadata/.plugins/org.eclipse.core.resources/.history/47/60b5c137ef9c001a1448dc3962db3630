@@ -1,0 +1,72 @@
+package com.example.CapAcademy.models;
+
+public class Formation {
+
+	
+	private int id  ; 
+	private String nom ;
+	private String prenom ;
+	private String phone ;
+	private String spec  ; 
+	private String codeCV;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getSpeciality() {
+		return speciality;
+	}
+	public void setSpeciality(String speciality) {
+		this.speciality = speciality;
+	}
+	public String getCodeCV() {
+		return codeCV;
+	}
+	public void setCodeCV(String codeCV) {
+		this.codeCV = codeCV;
+	}
+	
+	
+	
+	
+}

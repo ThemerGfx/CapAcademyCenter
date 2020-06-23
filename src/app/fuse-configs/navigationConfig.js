@@ -25,6 +25,13 @@ const navigationConfig = [
                 'type' : 'item',
                 'icon' : 'list',
                 'url'  : '/table-formations'
+            },
+            {
+                'id'   : 'table-contenu',
+                'title': 'Gestion de contenu',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '/table-contenu'
             }
         ]
     }

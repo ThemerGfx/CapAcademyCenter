@@ -8,13 +8,11 @@ import {
     Fab, 
     Icon
 } from '@material-ui/core';
-import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import {FuseAnimate} from '@fuse';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 import FormateursTableHead from './FormateursTableHead';
 
-import { getAllFormateurs, getAllFormateursSuccess, removeFormateur } from '../../store/actions/FormateurActions/FormateurActions'
+import { getAllFormateurs, getAllFormateursSuccess, removeFormateur, getCv } from '../../store/actions/FormateurActions/FormateurActions'
 
 
 class FormateursTable extends Component {
@@ -125,6 +123,15 @@ class FormateursTable extends Component {
                                                         </Icon>
                                                     </Fab>
                                                 </TableCell>
+
+                                                <TableCell>
+
+                                                    <a href={"http://localhost:8080/file/" + formateur.id}  >
+                                                       download
+                                                    </a>
+                                                </TableCell>
+
+
                                             </TableRow>
                                             );
                                         })
@@ -146,4 +153,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getAllFormateurs, getAllFormateursSuccess, removeFormateur })(FormateursTable)
+export default connect(mapStateToProps, { getAllFormateurs, getAllFormateursSuccess, removeFormateur, getCv })(FormateursTable)
