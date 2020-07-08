@@ -152,6 +152,23 @@ class FormationsTable extends Component {
 
                                                 <TableCell>
                                                     <Fab 
+                                                        color="blue"
+                                                        variant="contained"
+                                                        className="text-green color-green"
+                                                        onClick = { () => { 
+                                                            this.props.selectFormation(formation) }} 
+                                                        component={Link} to={'/ajout-seance/' + formation.id }
+                                                    >      
+                                                        <Icon 
+                                                            aria-label="add"
+                                                        >
+                                                            add
+                                                        </Icon>
+                                                    </Fab>
+                                                </TableCell>
+
+                                                <TableCell>
+                                                    <Fab 
                                                         color="primary"
                                                         variant="contained"
                                                         onClick = { () => { 

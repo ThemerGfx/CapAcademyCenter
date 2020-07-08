@@ -8,7 +8,7 @@ import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-const FormationsHeader = ({setSearchText, searchText, mainTheme, props}) => {
+const SeancesHeader = ({setSearchText, searchText, mainTheme, props}) => {
 
     return (
         <div className="flex flex-1 w-full items-center justify-between">
@@ -18,12 +18,12 @@ const FormationsHeader = ({setSearchText, searchText, mainTheme, props}) => {
                     <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                    <Typography className="hidden sm:flex" variant="h6">Formations</Typography>
+                    <Typography className="hidden sm:flex" variant="h6">Séances</Typography>
                 </FuseAnimate>
             </div>
             <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                <Button component={Link} to="/ajout-formation/add" className="whitespace-no-wrap" variant="contained">
-                    <span className="hidden sm:flex">Ajouter une formation</span>
+                <Button component={Link} to="/ajout-seance/add" className="whitespace-no-wrap" variant="contained">
+                    <span className="hidden sm:flex">Ajouter une séance</span>
                 </Button>
             </FuseAnimate>
         </div>
@@ -37,4 +37,4 @@ const mapStateToProps = ({fuse}) =>
     }
 }
 
-export default connect(mapStateToProps)(FormationsHeader);
+export default connect(mapStateToProps)(SeancesHeader);

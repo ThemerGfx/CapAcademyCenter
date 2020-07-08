@@ -7,6 +7,7 @@ import agentReducer from './AgentReducers/AgentReducers'
 import formateurReducer from './FormateurReducers/FormateurReducers'
 import formationReducer from './FormationReducers/FormationReducers'
 import contenuReducer from './ContenuReducers/ContenuReducers'
+import seanceReducer from '../reducers/SeanceReducers/SeanceReducers'
 import authReducers from '../../auth/store/reducers/index'
 
 const createReducer = (asyncReducers) =>
@@ -19,6 +20,7 @@ const createReducer = (asyncReducers) =>
         formateurReducer,
         formationReducer,
         contenuReducer,
+        seanceReducer,
         authReducers
     });
 

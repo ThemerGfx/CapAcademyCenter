@@ -17,31 +17,38 @@ const rows = [
         sort          : true
     },
     {
-        id            : 'nom',
+        id            : 'admin',
         align         : 'left',
         disablePadding: false,
-        label         : 'Email',
+        label         : 'Admin',
         sort          : true
     },
     {
-        id            : 'prénom',
+        id            : 'nameFormation',
         align         : 'left',
         disablePadding: false,
-        label         : 'Nom et Prénom',
+        label         : 'Nom Formation',
         sort          : true
     },
     {
-        id            : 'phone',
+        id            : 'nameFormateur',
         align         : 'left',
         disablePadding: false,
-        label         : 'Téléphone',
+        label         : 'Nom Formateur',
         sort          : true
     },
     {
-        id            : 'specialite',
+        id            : 'dateSeance',
         align         : 'left',
         disablePadding: false,
-        label         : 'Spécialité',
+        label         : 'Date Séance',
+        sort          : true
+    },
+    {
+        id            : 'urlSeance',
+        align         : 'left',
+        disablePadding: false,
+        label         : 'Url Séance',
         sort          : true
     },
     {
@@ -49,13 +56,6 @@ const rows = [
         align         : 'left',
         disablePadding: false,
         label         : 'Supprimer',
-        sort          : true
-    },
-    {
-        id            : 'download',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Télécharger',
         sort          : true
     }
 ];
@@ -66,7 +66,7 @@ const styles = theme => ({
     }
 });
 
-class FormateursTableHead extends React.Component {
+class SeancesTableHead extends React.Component {
     state = {
         selectedProductsMenu: null
     };
@@ -117,4 +117,4 @@ class FormateursTableHead extends React.Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(FormateursTableHead);
+export default withStyles(styles, {withTheme: true})(SeancesTableHead);

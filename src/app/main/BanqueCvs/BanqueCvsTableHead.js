@@ -17,38 +17,10 @@ const rows = [
         sort          : true
     },
     {
-        id            : 'nom',
+        id            : 'name',
         align         : 'left',
         disablePadding: false,
-        label         : 'Email',
-        sort          : true
-    },
-    {
-        id            : 'prénom',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Nom et Prénom',
-        sort          : true
-    },
-    {
-        id            : 'phone',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Téléphone',
-        sort          : true
-    },
-    {
-        id            : 'specialite',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Spécialité',
-        sort          : true
-    },
-    {
-        id            : 'supprimer',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Supprimer',
+        label         : 'Nom de fichier',
         sort          : true
     },
     {
@@ -66,7 +38,7 @@ const styles = theme => ({
     }
 });
 
-class FormateursTableHead extends React.Component {
+class FormationsTableHead extends React.Component {
     state = {
         selectedProductsMenu: null
     };
@@ -117,4 +89,4 @@ class FormateursTableHead extends React.Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(FormateursTableHead);
+export default withStyles(styles, {withTheme: true})(FormationsTableHead);

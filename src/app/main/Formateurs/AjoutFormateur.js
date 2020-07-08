@@ -158,8 +158,8 @@ class AjoutFormateur extends Component {
                                         id="nom"
                                         name="nom"
                                         onChange={this.handleChange}
-                                        label="Nom"
-                                        type="text"
+                                        label="Email"
+                                        type="email"
                                         value={this.state.nom}
                                         multiline
                                         variant="outlined"
@@ -170,7 +170,7 @@ class AjoutFormateur extends Component {
                                     <TextField  
                                         value={this.state.prenom}
                                         id="prenom"
-                                        label="Prénom"        
+                                        label="Nom et Prénom"        
                                         onChange={this.handleChange}
                                         variant="outlined"
                                         margin="normal" 

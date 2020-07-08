@@ -8,24 +8,24 @@ import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-const FormationsHeader = ({setSearchText, searchText, mainTheme, props}) => {
+const BanqueCvsHeader = ({setSearchText, searchText, mainTheme, props}) => {
 
     return (
         <div className="flex flex-1 w-full items-center justify-between">
-
+{/* 
             <div className="flex items-center">
                 <FuseAnimate animation="transition.expandIn" delay={300}>
                     <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                    <Typography className="hidden sm:flex" variant="h6">Formations</Typography>
+                    <Typography className="hidden sm:flex" variant="h6">Formateurs</Typography>
                 </FuseAnimate>
             </div>
             <FuseAnimate animation="transition.slideRightIn" delay={300}>
                 <Button component={Link} to="/ajout-formation/add" className="whitespace-no-wrap" variant="contained">
                     <span className="hidden sm:flex">Ajouter une formation</span>
                 </Button>
-            </FuseAnimate>
+            </FuseAnimate> */}
         </div>
     );
 };
@@ -37,4 +37,4 @@ const mapStateToProps = ({fuse}) =>
     }
 }
 
-export default connect(mapStateToProps)(FormationsHeader);
+export default connect(mapStateToProps)(BanqueCvsHeader);

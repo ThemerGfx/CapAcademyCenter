@@ -7,6 +7,8 @@ import {LoginConfig} from '../auth/LoginConfig'
 import {Register2PageConfig} from '../auth/Register2PageConfig'
 import {AjoutFormationConfig} from '../main/Formations/AjoutFormationConfig'
 import {ContenuConfig} from '../main/Contenu/ContenuConfig'
+import {BanqueCvsConfig} from '../main/BanqueCvs/BanqueCvsConfig'
+import {AjoutSeancesConfig} from '../main/Seances/AjoutSeancesConfig'
 
 const routeConfigs = [
     LoginConfig,
@@ -14,7 +16,9 @@ const routeConfigs = [
     AjoutAgentConfig,
     AjoutFormateurConfig,
     AjoutFormationConfig,
-    ContenuConfig
+    ContenuConfig,
+    BanqueCvsConfig,
+    AjoutSeancesConfig
 ];
 
  const routes = [

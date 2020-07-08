@@ -73,6 +73,13 @@ const rows = [
         sort          : true
     },
     {
+        id            : 'seance',
+        align         : 'left',
+        disablePadding: false,
+        label         : 'Ajouter séance',
+        sort          : true
+    },
+    {
         id            : 'supprimer',
         align         : 'left',
         disablePadding: false,

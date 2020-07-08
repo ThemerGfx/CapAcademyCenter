@@ -153,7 +153,6 @@ class AjoutFormation extends Component {
 
     render()
     {
-        // console.log(this.props.allFormateurs)
 
         return (
             <FusePageCarded
@@ -209,13 +208,6 @@ class AjoutFormation extends Component {
                             </div>
                         </div>
                 }
-                // contentToolbar={
-                //     <div className="px-24"> 
-                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                //             <h4> Nouvelle Formation </h4>
-                //         </FuseAnimate>
-                //     </div>
-                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>
@@ -297,9 +289,9 @@ class AjoutFormation extends Component {
                                                 onChange={this.handleChange}
                                                 variant="outlined"
                                             >
-                                                  <option  selected='true'>
-                                                            Aucune selection
-                                                        </option>
+                                                    <option  selected='true'>
+                                                        Email Formateur
+                                                    </option>
                                                 {
                                                     this.props.allFormateurs.map((formateur, index) => {
                                                         return (
@@ -310,24 +302,8 @@ class AjoutFormation extends Component {
                                                     })
                                                 }
                                                 </select>
-                                            {/* <MenuItem value="" className="mt-8 mb-16">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={"20"}>Twenty</MenuItem>
-                                            <MenuItem value={"30"}>Thirty</MenuItem> */}
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={400}>
-                                    {/* <TextField
-                                        className="mt-8 mb-16"
-                                        id="type"
-                                        name="type"
-                                        onChange={this.handleChange}
-                                        label="Type"
-                                        type="text"
-                                        value={this.state.type}
-                                        variant="outlined"
-                                        fullWidth
-                                    /> */}
                                         <select
                                                 className="mt-15 mb-20"
                                                 helperText="Type"
@@ -341,6 +317,9 @@ class AjoutFormation extends Component {
                                                 required
                                                 variant="outlined"
                                             >
+                                                    <option  selected='true'>
+                                                        Type Formation
+                                                    </option>
                                                 {
                                                     types.map((option) => {
                                                         return (

@@ -32,6 +32,20 @@ const navigationConfig = [
                 'type' : 'item',
                 'icon' : 'list',
                 'url'  : '/table-contenu'
+            },
+            {
+                'id'   : 'table-cvs',
+                'title': 'Gestion de banque des CVs',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '/table-cvs'
+            },
+            {
+                'id'   : 'table-seances',
+                'title': 'Gestion des séances',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '/table-seances'
             }
         ]
     }
