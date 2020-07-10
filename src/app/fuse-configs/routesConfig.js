@@ -9,6 +9,7 @@ import {AjoutFormationConfig} from '../main/Formations/AjoutFormationConfig'
 import {ContenuConfig} from '../main/Contenu/ContenuConfig'
 import {BanqueCvsConfig} from '../main/BanqueCvs/BanqueCvsConfig'
 import {AjoutSeancesConfig} from '../main/Seances/AjoutSeancesConfig'
+import {FormationFormateurConfig} from '../main/template/FormationFormateurConfig'
 
 const routeConfigs = [
     LoginConfig,
@@ -18,14 +19,15 @@ const routeConfigs = [
     AjoutFormationConfig,
     ContenuConfig,
     BanqueCvsConfig,
-    AjoutSeancesConfig
+    AjoutSeancesConfig,
+    FormationFormateurConfig
 ];
 
  const routes = [
     ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
     {
         path     : '/',
-        component: () => <Redirect to="/table-agents"/>
+        component: () => <Redirect to="/login"/>
     }
 ];
 

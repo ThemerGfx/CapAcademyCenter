@@ -157,7 +157,7 @@ class FormationsTable extends Component {
                                                         className="text-green color-green"
                                                         onClick = { () => { 
                                                             this.props.selectFormation(formation) }} 
-                                                        component={Link} to={'/ajout-seance/' + formation.id }
+                                                        component={Link} to={'/ajout-seance/' + formation.id + '/' + formation.formateur }
                                                     >      
                                                         <Icon 
                                                             aria-label="add"

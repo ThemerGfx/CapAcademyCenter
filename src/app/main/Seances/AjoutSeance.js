@@ -53,7 +53,7 @@ class AjoutSeance extends Component {
                 dateSeance
             } = this.state
             
-            this.props.createSeance(this.state, this.props.formationItem.id)
+            this.props.createSeance(this.state, this.props.formationItem.id, this.props.formationItem.formateur)
 
 
             this.setState({

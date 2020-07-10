@@ -46,6 +46,13 @@ const navigationConfig = [
                 'type' : 'item',
                 'icon' : 'list',
                 'url'  : '/table-seances'
+            },
+            {
+                'id'   : 'table-form-form',
+                'title': 'Gestion des hata chey',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '/table-formation-formateurs'
             }
         ]
     }

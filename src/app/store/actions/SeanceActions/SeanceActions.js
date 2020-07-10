@@ -2,16 +2,16 @@ import axios from 'axios'
 
 let allSeances = []
 
-export const createSeance = (seance, id) => { 
+export const createSeance = (seance, id, formateur) => { 
   return (dispatch) => { 
-      axios.post('http://localhost:8080/Seance/' + id , seance)
+      axios.post('http://localhost:8080/Seance/' + id + '/' + formateur , seance)
         .then((res) => {
           if (res.status === 200) {
             return {
               ...seance,
               allSeances: [...allSeances, {...seance}]
             }
-        }
+          }
         })
         .then(() => {
           dispatch({
