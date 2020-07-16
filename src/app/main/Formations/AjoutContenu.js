@@ -1,26 +1,14 @@
 import React, {Component} from 'react';
 import { 
-    Button, 
-    TextField, 
+    Button,
     Icon, 
     Input,
-    Typography,
-    Menu
+    Typography
 } from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import { format } from 'date-fns/fp';
-import axios, { post } from 'axios';
-
-// import { createFormation, updateFormaion } from '../../store/actions/FormationActions/FormationActions'
-
-// import { getAllFormateurs } from '../../store/actions/FormateurActions/FormateurActions'
+import { post } from 'axios';
 
 const types = [
     {
@@ -48,63 +36,6 @@ class AjoutContenu extends Component {
         })
     }
 
-    // componentDidMount()
-    // {
-    //     // this.props.getAllFormateurs()
-    //     // this.updateFormationState();
-    //     // console.log('je trouve', this.props.formationItem)
-    // }
-
-    // componentDidUpdate(prevProps, prevState, snapshot)
-    // {
-
-    //     const params = this.props.match.params;
-    //     const {formationId} = params;
-
-    //     if ( formationId === 'edit')
-    //     { const {formationItem} = this.props
-    //     this.setState({
-    //         id: formationItem.id,
-    //         name: formationItem.name,
-    //         formateur: formationItem.formateur,
-    //         prix: formationItem.prix,
-    //         dateDebt: formationItem.dateDebt,
-    //         dateFin: formationItem.dateFin,
-    //         type: formationItem.type
-    //     })
-    //     } 
-    // }
-
-    // updateFormationState = () => {
-    //     const params = this.props.match.params;
-    //     const {formationId} = params;
-
-    //     if ( formationId === 'add' )
-    //     {  
-    //         this.setState({
-    //             id: '',
-    //             name: '',
-    //             dateDebt: '',
-    //             dateFin: '',
-    //             prix: '',
-    //             formateur: '',
-    //             type: ''
-    //        })
-    //     } 
-    //     else 
-    //     {   const {formationItem} = this.props
-    //         this.setState({
-    //             id: formationItem.id,
-    //             name: formationItem.name,
-    //             formateur: formationItem.formateur,
-    //             prix: formationItem.prix,
-    //             dateDebt: formationItem.dateDebt,
-    //             dateFin: formationItem.dateFin,
-    //             type: formationItem.type
-    //         })
-    //     }
-    // }
-
     handleSaveFormation = (e) => {
         e.preventDefault();
         const 
@@ -125,7 +56,6 @@ class AjoutContenu extends Component {
     
     handleUpdateFormation = () =>{
         this.props.updateFormaion(this.state)
-        console.log('mrigle el edit')
         this.setState({
             id: '',
             name: '',
@@ -152,15 +82,11 @@ class AjoutContenu extends Component {
 
     handleChangeUpload = (e) => {
         let filesUp = e.target.files[0];
-        console.log(filesUp)
         this.setState({formation: filesUp});
     }
 
     render()
     {
-        console.log(this.props.formationItem.name)
-        console.log(this.props.formationItem.id)
-
         return (
             <FusePageCarded
                 classes={{
@@ -191,8 +117,6 @@ class AjoutContenu extends Component {
                             </div>
                             <div>
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                            {/* {
-                                    this.props.match.params.contenuId === 'add' ? ( */}
                                 <Button
                                     className="whitespace-no-wrap"
                                     variant="contained"
@@ -200,28 +124,10 @@ class AjoutContenu extends Component {
                                 >
                                     Ajouter
                                 </Button>
-                                {/* ) : ( */}
-                                    {/* <Button
-                                        className="whitespace-no-wrap"
-                                        variant="contained"
-                                        onClick = { this.handleUpdateFormation }
-                                        component={Link} to={'/table-formations'}
-                                    >
-                                        Modifier
-                                    </Button>
-                                )                               
-                            } */}
                             </FuseAnimate>
                             </div>
                         </div>
                 }
-                // contentToolbar={
-                //     <div className="px-24"> 
-                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                //             <h4> Nouveau Formateur </h4>
-                //         </FuseAnimate>
-                //     </div>
-                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>
@@ -230,36 +136,6 @@ class AjoutContenu extends Component {
                                     onChange={this.handleChangeUpload}
                                     name="file"
                                 />
-                                {/* <FuseAnimate animation="transition.bounceUpIn" delay={1000}>
-                                    <TextField
-                                        className="mt-8 mb-16"
-                                        id="name"
-                                        name="name"
-                                        onChange={this.handleChange}
-                                        label="Name"
-                                        type="text"
-                                        value={this.state.name}
-                                        multiline
-                                        variant="outlined"
-                                        fullWidth
-                                        required
-                                    />
-                                    </FuseAnimate>
-                                    <FuseAnimate animation="transition.bounceUpIn" delay={800}>
-                                    <TextField  
-                                        value={this.state.formation}
-                                        id="formation"
-                                        onChange={this.handleChange}
-                                        variant="outlined"
-                                        label="Formation"
-                                        margin="normal" 
-                                        type="text"
-                                        className="mt-8 mb-16"   
-                                        name="formation"
-                                        fullWidth
-                                        required
-                                    />
-                                </FuseAnimate> */}
                             </form>
                         </div>
                 }
@@ -270,7 +146,6 @@ class AjoutContenu extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         allFormateurs: state.formateurReducer.allFormateurs,
         formationItem: state.formationReducer.formationItem

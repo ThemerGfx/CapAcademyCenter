@@ -26,9 +26,6 @@ class Register2Page extends Component {
         date1                : today
     };
 
-    // handleChange = (event) => {
-    //     this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    // };
     handleChange = (e) => {
         this.setState({
           [e.target.id]: e.target.value
@@ -60,8 +57,9 @@ class Register2Page extends Component {
                     className="flex flex-col flex-no-grow items-center text-white p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left">
 
                     <FuseAnimate animation="transition.expandIn">
-                        <img className="w-128 mb-32" src={logo}/>
+                        <img src={logo}/>
                     </FuseAnimate>
+                    <br/><br/>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="primary" className="font-dark">
@@ -76,7 +74,7 @@ class Register2Page extends Component {
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 
-                            <Typography variant="h6" className="md:w-full mb-32">CREATE AN ACCOUNT</Typography>
+                            <Typography variant="h6" className="md:w-full mb-32">CRÉER UN COMPTE</Typography>
 
                             <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -132,7 +130,7 @@ class Register2Page extends Component {
                                 />
                                 <TextField
                                     className="mb-16"
-                                    label="Password"
+                                    label="Mot de passe"
                                     id="password"
                                     type="password"
                                     name="password"
@@ -145,7 +143,7 @@ class Register2Page extends Component {
 
                                 <TextField
                                     className="mb-16"
-                                    label="Password (Confirm)"
+                                    label="Mot de passe (Confirmation)"
                                     id="passwordConfirm"
                                     type="password"
                                     name="passwordConfirm"
@@ -162,14 +160,15 @@ class Register2Page extends Component {
                                     aria-label="Register"
                                     onClick = { this.handleSubmit }
                                 >
-                                    CREATE AN ACCOUNT
+                                    Créer un compte
                                 </Button>
 
                             </form>
 
                             <div className="flex flex-col items-center justify-center pt-32 pb-24">
-                                <span className="font-medium">Already have an account?</span>
-                                <Link className="font-medium" to="/Login">Login</Link>
+                                <span className="font-medium">Vous avez déjà un compte?</span>
+                                <br/>
+                                <Link className="font-medium" to="/Login">Se CONNECTER</Link>
                             </div>
 
                         </CardContent>

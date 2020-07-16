@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.CapAcademy.CapAcademyApplication;
 import com.example.CapAcademy.Repositories.UserRepository;
 import com.example.CapAcademy.models.Agent;
 import com.example.CapAcademy.models.Formateur;
@@ -29,9 +30,31 @@ public class UserController {
 			User user = new User() ; 
 		 int size = Us.findUser(email, pass).size() ; 
 		 if (size == 0)
-		 {return user;}
+		 {
+			 
+			 
+			 
+			 return user;}
 		 else 
-		 {return Us.findUser(email, pass).get(0);}
+		 {
+			 
+			 CapAcademyApplication.email = Us.findUser(email, pass).get(0).getEmail() ; 
+			 CapAcademyApplication.idUser =  Us.findUser(email, pass).get(0).getId().intValue() ; 
+			 CapAcademyApplication.NumTel = Us.findUser(email, pass).get(0).getNum_telephone() ; 
+			 	 
+			 
+			 System.out.println(CapAcademyApplication.email );
+			 System.out.println(CapAcademyApplication.idUser);
+			 System.out.println(CapAcademyApplication.NumTel);
+			 
+			 return Us.findUser(email, pass).get(0);
+			 
+		 
+		 
+		 
+		 
+		 
+		 }
 		 
 	 
 	 
@@ -54,4 +77,26 @@ public class UserController {
 			return Us.save(c) ;
 		}
 
+		
+		
+		
+
+		@RequestMapping(value="/valider/{id}" , method=RequestMethod.POST)
+		public User valider(@RequestBody User c ,  @PathVariable   long id ) {
+			
+			c.setId(id);
+			
+			return Us.save(c) ;
+		}
+		
+		
+		
+		
+
+		
+		
+
+		
+		
+		
 }

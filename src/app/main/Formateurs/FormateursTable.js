@@ -9,7 +9,6 @@ import {
     Icon
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-// import CircularProgress from '@material-ui/core/CircularProgress';
 import FormateursTableHead from './FormateursTableHead';
 
 import { getAllFormateurs, getAllFormateursSuccess, removeFormateur, getCv } from '../../store/actions/FormateurActions/FormateurActions'
@@ -64,17 +63,6 @@ class FormateursTable extends Component {
     render()
     {
         const { chatsMoreMenuEl } = this.state;
-        // const formateursFetched = this.props.allFormateurs
-        // console.log('mel base-formateurs: ', formateursFetched)
-
-
-        // if (this.state.loader) {
-        //     return (    
-        //         <div className="w-full flex flex-col">
-        //             <CircularProgress />
-        //         </div>
-        //     )
-        // } else {
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -88,10 +76,6 @@ class FormateursTable extends Component {
                                         this.props.allFormateurs.map((formateur, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {formateur.id}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {formateur.nom}
@@ -146,7 +130,6 @@ class FormateursTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {        
         allFormateurs: state.formateurReducer.allFormateurs
 

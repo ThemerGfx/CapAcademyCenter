@@ -10,6 +10,7 @@ import {ContenuConfig} from '../main/Contenu/ContenuConfig'
 import {BanqueCvsConfig} from '../main/BanqueCvs/BanqueCvsConfig'
 import {AjoutSeancesConfig} from '../main/Seances/AjoutSeancesConfig'
 import {FormationFormateurConfig} from '../main/template/FormationFormateurConfig'
+import {DemandesConfig} from '../main/Demandes/DemandesConfig'
 
 const routeConfigs = [
     LoginConfig,
@@ -20,7 +21,8 @@ const routeConfigs = [
     ContenuConfig,
     BanqueCvsConfig,
     AjoutSeancesConfig,
-    FormationFormateurConfig
+    FormationFormateurConfig,
+    DemandesConfig
 ];
 
  const routes = [

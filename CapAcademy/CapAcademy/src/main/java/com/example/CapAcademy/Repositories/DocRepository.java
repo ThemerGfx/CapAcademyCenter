@@ -15,4 +15,5 @@ public interface DocRepository extends JpaRepository<Doc, Integer>{
 	List<Doc> findCv(long id  );  
 		
 	
+	
 }

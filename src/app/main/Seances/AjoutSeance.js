@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import { 
     Button, 
     TextField, 
-    Icon, 
-    Input,
+    Icon,
     Typography
 } from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
@@ -150,7 +149,6 @@ class AjoutSeance extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         allFormateurs: state.formateurReducer.allFormateurs,
         allFormations: state.formationReducer.allFormations,

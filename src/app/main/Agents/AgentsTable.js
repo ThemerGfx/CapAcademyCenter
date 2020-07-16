@@ -5,20 +5,11 @@ import {
     Table, 
     TableBody, 
     TableCell, 
-    TableRow, 
-    Menu,
-    IconButton,
-    MenuItem ,
-    ListItemText,
+    TableRow,
     Fab
-    // Button
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 import {FuseAnimate} from '@fuse';
-// import {Link} from 'react-router-dom';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import AgentsTableHead from './AgentsTableHead';
 
 import { getAllAgents, getAllAgentsSuccess, removeAgent, selectAgent } from '../../store/actions/AgentActions/AgentActions'
@@ -74,14 +65,6 @@ class AgentsTable extends Component {
     {
         const { chatsMoreMenuEl } = this.state;
         const agentsFetched = this.props.allAgents
-        console.log('mel base-agents: ', agentsFetched)
-        // if (this.state.loader) {
-        //     return (    
-        //         <div className="w-full flex flex-col">
-        //             <CircularProgress />
-        //         </div>
-        //     )
-        // } else {
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -95,10 +78,6 @@ class AgentsTable extends Component {
                                         this.props.allAgents.map((agent, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {agent.id}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {agent.prenom}
@@ -133,16 +112,6 @@ class AgentsTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell>
-                                                    {/* <Button 
-                                                        variant="contained" 
-                                                        size="small" 
-                                                        color="primary" 
-                                                        // className="text-red color-blue"
-                                                        onClick = { () => { 
-                                                            this.props.removeAgent(agent.id) }} 
-                                                    >
-                                                        Supprimer
-                                                    </Button> */}
                                                     <Fab 
                                                         color="primary"
                                                         variant="contained"
@@ -171,16 +140,6 @@ class AgentsTable extends Component {
                                                             edit
                                                         </Icon>
                                                     </Fab>
-                                                    {/* <Button 
-                                                        variant="outlined" 
-                                                        size="medium" 
-                                                        color="default"
-                                                        onClick = { () => { this.props.selectAgent(agent) } } 
-                                                        className="text-blue color-blue"
-                                                        component={Link} to={'/ajout-agent/' + agent.id + '/' + agent.prenom}
-                                                    >
-                                                        Modifier
-                                                    </Button> */}
                                                 </TableCell>
                                             </TableRow>
                                             );
@@ -196,7 +155,6 @@ class AgentsTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {        
         allAgents: state.agentReducer.allAgents,
 

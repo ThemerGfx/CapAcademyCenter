@@ -25,12 +25,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.CapAcademy.Repositories.ContenuRepository;
 import com.example.CapAcademy.models.Doc;
+import com.example.CapAcademy.models.Formation;
 import com.example.CapAcademy.models.contenu;
 
 @RestController
 @CrossOrigin(origins ="*")
 public class ContenuController {
 	
+
 	
 	@Autowired
 	private ContenuRepository CR ; 
@@ -50,7 +52,7 @@ public class ContenuController {
 				convertFile.createNewFile();
 				FileOutputStream fout = new FileOutputStream(folderPath+random+file.getOriginalFilename());
 				fout.write(file.getBytes());	
-				contenu doc = new contenu(random+file.getOriginalFilename(),file.getOriginalFilename(),formation,idFormation);
+				contenu doc = new contenu(random+file.getOriginalFilename(),file.getOriginalFilename(),idFormation);
 				CR.save(doc);
 				fout.close();
 				return new ResponseEntity<>("File is uploaded successfully", HttpStatus.OK);
@@ -111,5 +113,4 @@ public class ContenuController {
 	
 	
 	
-
 }

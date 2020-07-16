@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.util.unit.DataSize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.example.CapAcademy.Controller.ContenuController;
+import com.example.CapAcademy.Controller.FormationController;
+import com.example.CapAcademy.Services.FormationService;
+
 
 @CrossOrigin(origins ="*")
 @SpringBootApplication
@@ -18,15 +22,18 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @ServletComponentScan
 public class CapAcademyApplication {
 
-	public static int idUser = 2 ; 
-	
+	public static int idUser ; 
+	public static String email ;
+	public static String NumTel ;
 	public static void main(String[] args) {
 		
 		
 		
-		SpringApplication.run(CapAcademyApplication.class, args);
 		
+		SpringApplication.run(CapAcademyApplication.class, args);
+
 	
+		
 	}
 
 	

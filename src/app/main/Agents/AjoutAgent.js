@@ -42,7 +42,6 @@ class AjoutAgent extends Component {
     componentDidMount()
     {
         this.updateAgentState();
-        console.log('je trouve', this.props.agentItem)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot)
@@ -128,13 +127,11 @@ class AjoutAgent extends Component {
             idAdmin: '',
             dateDajout: ''
           })
-          console.log('yess')
         }
       }
 
       handleUpdateAgent = () =>{
         this.props.updateAgent(this.state)
-        console.log('mrigle el edit')
         this.setState({
             id: '',
             prenom: '',
@@ -206,13 +203,6 @@ class AjoutAgent extends Component {
                             </div>
                         </div>
                 }
-                // contentToolbar={
-                //     <div className="px-24"> 
-                //         <FuseAnimate animation="transition.perspectiveUpIn" delay={500}>
-                //             <h4> Nouvel Agent </h4>
-                //         </FuseAnimate>
-                //     </div>
-                // }
                 content={
                         <div className="p-16 sm:p-24 max-w-2xl">
                             <form>
@@ -320,7 +310,6 @@ class AjoutAgent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
       agentItem: state.agentReducer.agentItem
     }

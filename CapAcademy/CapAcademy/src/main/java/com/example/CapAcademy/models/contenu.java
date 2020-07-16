@@ -8,60 +8,77 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+
 @Entity(name = "Contenu")
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins = "*")
 public class contenu implements Serializable {
 
-private static final long serialVersionUID = 1L;
-	 
- @Id
- @GeneratedValue(strategy=GenerationType.AUTO)
+	@Override
+	public String toString() {
+		return "contenu [id=" + id + ", name=" + name + ", formation=" + formation + ", idFormation=" + idFormation
+				+ "]";
+	}
 
- private Long id ; 
- private String name ; 
- private String description ; 
- private String formation ;
- private Long IdFormation ; 
-public Long getId() {
-	return id;
-}
-public void setId(Long id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public String getDescription() {
-	return description;
-}
-public void setDescription(String description) {
-	this.description = description;
-}
-public String getFormation() {
-	return formation;
-}
-public void setFormation(String formation) {
-	this.formation = formation;
-}
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
+	private static final long serialVersionUID = 1L;
 
-public contenu() {
-	super();
-}
-public contenu(String name, String description, String formation, Long idFormation) {
-	super();
-	this.name = name;
-	this.description = description;
-	this.formation = formation;
-	IdFormation = idFormation;
-}
- 
- 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+
+	private Long id;
+	private String name;
+	private String formation;
+	private Long idFormation ; 
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFormation() {
+		return formation;
+	}
+
+	public void setFormation(String formation) {
+		this.formation = formation;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Long getIdFormation() {
+		return idFormation;
+	}
+
+	public void setIdFormation(Long idFormation) {
+		this.idFormation = idFormation;
+	}
+
+	public contenu(String name, String formation, Long idFormation) {
+		super();
+		this.name = name;
+		this.formation = formation;
+		this.idFormation = idFormation;
+	}
+
+	public contenu() {
+		super();
+	}
+
+
 	
 	
+
 }

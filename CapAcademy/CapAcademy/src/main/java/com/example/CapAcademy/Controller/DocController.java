@@ -8,13 +8,14 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.plaf.metal.MetalIconFactory.FolderIcon16;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,7 @@ import com.example.CapAcademy.CapAcademyApplication;
 import com.example.CapAcademy.Repositories.DocRepository;
 import com.example.CapAcademy.Repositories.FormateurRepository;
 import com.example.CapAcademy.models.Doc;
-import com.example.CapAcademy.models.User;
+import com.example.CapAcademy.models.Formation;
 
 @RestController
 @CrossOrigin(origins ="*")
@@ -35,8 +36,7 @@ public class DocController {
 	
 	@Autowired
 	private DocRepository docRepository;
-	public String folderPath  = "C:\\Users\\thame\\Desktop\\CapAcademy\\CapAcademy\\CV\\" ; 
-
+	public String folderPath = "C:/Users/thame/Desktop/CapAcademy/CapAcademy/CV/" ; 
 	
 	@RequestMapping(value="/UploadF", method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 
@@ -50,7 +50,7 @@ public class DocController {
 				convertFile.createNewFile();
 				FileOutputStream fout = new FileOutputStream(folderPath+random+file.getOriginalFilename());
 				fout.write(file.getBytes());	
-				Doc doc = new Doc(FormateurController.LastIdValue,random+file.getOriginalFilename(),file.getContentType());
+				Doc doc = new Doc(33,random+file.getOriginalFilename(),"dd");
 				docRepository.save(doc);
 				fout.close();
 				return new ResponseEntity<>("File is uploaded successfully", HttpStatus.OK);
@@ -62,11 +62,6 @@ public class DocController {
 	
 
 
-	
-	
-	
-	
-	
 	
 	public String CvbyId( long id ) {
 		
@@ -122,6 +117,22 @@ public class DocController {
 	
 	
 	
+
+
+	
+	
+	/*
+
+	
+	@RequestMapping("/files")
+	public File[] showFiles(Model model) {
+		String folderPath="C://Users/hp/Desktop/CapAcademy/CapAcademy/gallery";
+		File folder = new File(folderPath);
+		File[] listOfFiles = folder.listFiles();
+		
+		return listOfFiles;
+	}
+	*/
 	
 
 	

@@ -10,13 +10,6 @@ import {
 
 const rows = [
     {
-        id            : 'id',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'ID',
-        sort          : true
-    },
-    {
         id            : 'nom',
         align         : 'left',
         disablePadding: false,

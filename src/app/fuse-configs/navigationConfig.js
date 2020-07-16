@@ -48,11 +48,11 @@ const navigationConfig = [
                 'url'  : '/table-seances'
             },
             {
-                'id'   : 'table-form-form',
-                'title': 'Gestion des hata chey',
+                'id'   : 'table-demandes',
+                'title': 'Gestion des demandes',
                 'type' : 'item',
                 'icon' : 'list',
-                'url'  : '/table-formation-formateurs'
+                'url'  : '/table-demandes'
             }
         ]
     }

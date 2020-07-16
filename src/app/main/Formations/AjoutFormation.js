@@ -2,21 +2,12 @@ import React, {Component} from 'react';
 import { 
     Button, 
     TextField, 
-    Icon, 
-    Input,
-    Typography,
-    Menu
+    Icon,
+    Typography
 } from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import axios from 'axios';
-import { format } from 'date-fns/fp';
 
 import { createFormation, updateFormaion } from '../../store/actions/FormationActions/FormationActions'
 
@@ -56,7 +47,6 @@ class AjoutFormation extends Component {
     {
         this.props.getAllFormateurs()
         this.updateFormationState();
-        console.log('je trouve', this.props.formationItem)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot)
@@ -139,7 +129,6 @@ class AjoutFormation extends Component {
     
     handleUpdateFormation = () =>{
         this.props.updateFormaion(this.state)
-        console.log('mrigle el edit')
         this.setState({
             id: '',
             name: '',
@@ -268,68 +257,57 @@ class AjoutFormation extends Component {
                                     />
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={400}>
-                                    {/* <TextField
-                                        className="mt-8 mb-16"
+                                    <select
+                                        className="mt-15 mb-20"
+                                        helperText="Formateur"
                                         id="formateur"
                                         name="formateur"
-                                        onChange={this.handleChange}
-                                        label="Formateur"
-                                        type="text"
+                                        select
                                         value={this.state.formateur}
+                                        onChange={this.handleChange}
                                         variant="outlined"
-                                        fullWidth
-                                    /> */}
-                                            <select
-                                                className="mt-15 mb-20"
-                                                helperText="Formateur"
-                                                id="formateur"
-                                                name="formateur"
-                                                select
-                                                value={this.state.formateur}
-                                                onChange={this.handleChange}
-                                                variant="outlined"
-                                            >
-                                                    <option  selected='true'>
-                                                        Email Formateur
-                                                    </option>
-                                                {
-                                                    this.props.allFormateurs.map((formateur, index) => {
-                                                        return (
-                                                        <option key={index} value={formateur.nom}>
-                                                            {formateur.nom}
-                                                        </option>
-                                                        )
-                                                    })
-                                                }
-                                                </select>
+                                    >
+                                        <option  selected='true'>
+                                            Email Formateur
+                                        </option>
+                                        {
+                                            this.props.allFormateurs.map((formateur, index) => {
+                                                return (
+                                                <option key={index} value={formateur.nom}>
+                                                    {formateur.nom}
+                                                </option>
+                                                )
+                                            })
+                                        }
+                                    </select>
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.bounceUpIn" delay={400}>
-                                        <select
-                                                className="mt-15 mb-20"
-                                                helperText="Type"
-                                                id="type"
-                                                name="type"
-                                                select
-                                                value={this.state.type}
-                                                onChange={this.handleChange}
-                                                variant="outlined"
-                                                fullWidth
-                                                required
-                                                variant="outlined"
-                                            >
-                                                    <option  selected='true'>
-                                                        Type Formation
-                                                    </option>
-                                                {
-                                                    types.map((option) => {
-                                                        return (
-                                                        <option key={option.name} value={option.name}>
-                                                            {option.name}
-                                                        </option>
-                                                        )
-                                                    })
-                                                }
-                                            </select>
+                                    <select
+                                        className="mt-15 mb-20"
+                                        helperText="Type"
+                                        id="type"
+                                        name="type"
+                                        select
+                                        value={this.state.type}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        variant="outlined"
+                                    >
+                                        <option  selected='true'>
+                                            Type Formation
+                                        </option>
+                                        {
+                                            types.map((option) => {
+                                                return (
+                                                <option key={option.name} value={option.name}>
+                                                    {option.name}
+                                                </option>
+                                                )
+                                            })
+                                        }
+                                    </select>
                                 </FuseAnimate>
                             </form>
                         </div>
@@ -341,7 +319,6 @@ class AjoutFormation extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         allFormateurs: state.formateurReducer.allFormateurs,
         formationItem: state.formationReducer.formationItem

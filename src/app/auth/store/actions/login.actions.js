@@ -5,7 +5,7 @@ import * as Actions from 'app/store/actions';
 
 export const loginUser = (email, password) => { 
     return (dispatch) => { 
-        axios.post('http://localhost:8080/Login/' + email + '/' + password)
+        axios.get('http://localhost:8080/Login/' + email + '/' + password)
           .then((res) => {
             if (res.data.id !== null) {
                 history.push('/table-agents')

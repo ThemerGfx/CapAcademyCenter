@@ -4,14 +4,9 @@ import {
     Table, 
     TableBody, 
     TableCell, 
-    TableRow,
-    Fab, 
-    Icon
+    TableRow
 } from '@material-ui/core';
-import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import {FuseAnimate} from '@fuse';
-// import CircularProgress from '@material-ui/core/CircularProgress';
 import ContenuTableHead from './ContenuTableHead';
 
 import { getAllContenus, getAllContenusSuccess } from '../../store/actions/ContenuActions/ContenuActions'
@@ -59,17 +54,6 @@ class ContenuTable extends Component {
     render()
     {
         const { chatsMoreMenuEl } = this.state;
-        // const formateursFetched = this.props.allFormateurs
-        // console.log('mel base-formateurs: ', formateursFetched)
-
-
-        // if (this.state.loader) {
-        //     return (    
-        //         <div className="w-full flex flex-col">
-        //             <CircularProgress />
-        //         </div>
-        //     )
-        // } else {
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -83,10 +67,6 @@ class ContenuTable extends Component {
                                         this.props.allContenus.map((contenu, index) => {
                                             return ( 
                                             <TableRow className="h-64" hover>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {contenu.id}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {contenu.description}
@@ -115,7 +95,6 @@ class ContenuTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {        
         allContenus: state.contenuReducer.allContenus,
 

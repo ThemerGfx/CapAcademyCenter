@@ -12,7 +12,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	
 
-	@Query("SELECT u FROM User u WHERE u.email = ?1 and u.password = ?2 and u.etat='not valided' ")
+	@Query("SELECT u FROM User u WHERE u.email = ?1 and u.password = ?2 ")
 	List<User> findUser(String email ,String pass );  
 		
 	

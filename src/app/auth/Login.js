@@ -65,13 +65,7 @@ class Login extends Component {
         e.preventDefault();
         const {email,password} = this.state
     
-        if (formValid(this.state)) {
-            console.log(`
-                --SUBMITTING--
-                Email: ${this.state.email}
-                Password: ${this.state.password}
-            `);
-            
+        if (formValid(this.state)) {            
             this.props.loginUser(email,password)
             this.setState({
                 email   : '',
@@ -85,12 +79,6 @@ class Login extends Component {
 
     render()
     {
-        // const { auth } = this.props; 
-        // const { email, password, remember, formErrors } = this.state;
-
-        // console.log(auth)
-        // if (auth.uid)  return <Redirect to = '/animations'/>
-
         return (
             <div className="flex flex-col flex-auto flex-no-shrink items-center justify-center p-32">
 
@@ -126,7 +114,7 @@ class Login extends Component {
 
                                     <TextField
                                         className="mb-16"
-                                        label="Password"
+                                        label="Mot de passe"
                                         type="password"
                                         name="password"
                                         value={this.state.password}
@@ -146,30 +134,18 @@ class Login extends Component {
                                         onClick={this.handleSubmitLogin} 
                                         component={Link} to="/table-agents"
                                     >
-                                        LOG IN
+                                        SE CONNECTER
                                     </Button>
 
                                 </form>
 
                                 <div className="my-24 flex items-center justify-center">
                                     <Divider className="w-32"/>
-                                    <span className="mx-8 font-bold">OR</span>
+                                    <span className="mx-8 font-bold">OU</span>
                                     <Divider className="w-32"/>
                                 </div>
-
-                                <Button 
-                                    variant="contained" 
-                                    color="secondary" 
-                                    size="small"
-                                    className="normal-case w-192 mb-8"
-                                    // onClick={()=>{
-                                    // this.props.authWithGoogle()
-                                    // }}
-                                >
-                                    Log in with Google
-                                </Button>
                                 <Button className="font-medium" component={Link} to='/register-2'>
-                                    Create an account
+                                    Créer un compte
                                 </Button>
                                 
                             </CardContent>

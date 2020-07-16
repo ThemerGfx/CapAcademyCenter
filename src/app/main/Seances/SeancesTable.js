@@ -9,7 +9,6 @@ import {
     Icon
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-// import CircularProgress from '@material-ui/core/CircularProgress';
 import SeancesTableHead from './SeancesTableHead';
 
 import { getAllSeances, getAllSeancesSuccess, removeSeance } from '../../store/actions/SeanceActions/SeanceActions'
@@ -62,17 +61,6 @@ class SeancesTable extends Component {
     render()
     {
         const { chatsMoreMenuEl } = this.state;
-        // const formateursFetched = this.props.allFormateurs
-        // console.log('mel base-formateurs: ', formateursFetched)
-
-
-        // if (this.state.loader) {
-        //     return (    
-        //         <div className="w-full flex flex-col">
-        //             <CircularProgress />
-        //         </div>
-        //     )
-        // } else {
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -86,10 +74,6 @@ class SeancesTable extends Component {
                                         this.props.allSeances.map((seance, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {seance.id}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {seance.admin}
@@ -142,7 +126,6 @@ class SeancesTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {        
         allSeances: state.seanceReducer.allSeances
 

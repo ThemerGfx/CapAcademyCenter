@@ -20,6 +20,7 @@ public class Formateur {
 	private String nom ;
 	private String prenom ;
 	private String phone ;
+	
 	private String specialite  ;
 	
 	

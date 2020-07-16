@@ -11,7 +11,6 @@ import {
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import {FuseAnimate} from '@fuse';
-// import CircularProgress from '@material-ui/core/CircularProgress';
 import FormationsTableHead from './FormationsTableHead';
 
 import { getAllFormations, getAllFormationsSuccess, removeFormation, selectFormation } from '../../store/actions/FormationActions/FormationActions'
@@ -63,17 +62,6 @@ class FormationsTable extends Component {
     render()
     {
         const { chatsMoreMenuEl } = this.state;
-        // const formateursFetched = this.props.allFormateurs
-        // console.log('mel base-formateurs: ', formateursFetched)
-
-
-        // if (this.state.loader) {
-        //     return (    
-        //         <div className="w-full flex flex-col">
-        //             <CircularProgress />
-        //         </div>
-        //     )
-        // } else {
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -87,10 +75,6 @@ class FormationsTable extends Component {
                                         this.props.allFormations.map((formation, index) => {
                                             return ( 
                                             <TableRow className="h-64" hover>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {formation.id}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {formation.name}
@@ -137,9 +121,7 @@ class FormationsTable extends Component {
                                                     <Fab 
                                                         color="blue"
                                                         variant="contained"
-                                                        // className="text-blue color-blue"
                                                         onClick = { () => { this.props.selectFormation(formation) } } 
-                                                        // className="text-blue color-blue"
                                                         component={Link} to={'/ajout-formation/' + formation.id }
                                                     >      
                                                         <Icon 
@@ -195,7 +177,6 @@ class FormationsTable extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {        
         allFormations: state.formationReducer.allFormations,
 
