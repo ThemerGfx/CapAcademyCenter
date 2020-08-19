@@ -6,7 +6,8 @@ import {
     TableCell, 
     TableRow,
     Fab, 
-    Icon
+    Icon,
+    TablePagination
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -30,7 +31,8 @@ class FormationsTable extends Component {
         formateur: '',
         type: '',
         allFormations: '',
-        loader: true
+        page       : 0,
+        rowsPerPage: 10
     };
 
     componentDidMount()
@@ -59,9 +61,22 @@ class FormationsTable extends Component {
         this.setState({chatsMoreMenuEl: event.currentTarget});
     };
 
+    handleChangePage = (event, page) => {
+        this.setState({page});
+    };
+
+    handleChangeRowsPerPage = event => {
+        this.setState({rowsPerPage: event.target.value});
+    };
+
     render()
     {
         const { chatsMoreMenuEl } = this.state;
+        const formationsFetched = this.props.allFormations.filter(
+            (formationToFilter) => {
+                return formationToFilter.name.toLowerCase().indexOf(this.props.text.toLowerCase()) !== -1
+            }
+        )
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -72,7 +87,7 @@ class FormationsTable extends Component {
                             <FuseAnimate animation="transition.whirlIn" delay={400} className="flex-grow overflow-x-auto">
                                 <TableBody>
                                      { 
-                                        this.props.allFormations.map((formation, index) => {
+                                        formationsFetched.map((formation, index) => {
                                             return ( 
                                             <TableRow className="h-64" hover>
 
@@ -171,6 +186,22 @@ class FormationsTable extends Component {
                             </FuseAnimate>
                         </Table>
                     </FuseAnimate>
+
+                    <TablePagination
+                        component="div"
+                        count={this.props.allFormations.length}
+                        rowsPerPage={this.state.rowsPerPage}
+                        page={this.state.page}
+                        backIconButtonProps={{
+                            'aria-label': 'Previous Page'
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'Next Page'
+                        }}
+                        onChangePage={this.handleChangePage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
+
                 </div>
             );
         }
@@ -179,7 +210,7 @@ class FormationsTable extends Component {
 const mapStateToProps = (state) => {
     return {        
         allFormations: state.formationReducer.allFormations,
-
+        text : state.searchReducer.text
     }
 }
 

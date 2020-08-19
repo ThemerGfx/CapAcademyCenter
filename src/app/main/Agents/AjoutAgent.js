@@ -10,6 +10,8 @@ import {FuseAnimate, FusePageCarded} from '@fuse';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import history from '../../../history'
+
 import { createAgent, updateAgent } from '../../store/actions/AgentActions/AgentActions'
 
 var today = new Date();
@@ -127,6 +129,7 @@ class AjoutAgent extends Component {
             idAdmin: '',
             dateDajout: ''
           })
+          history.push('/table-agents')
         }
       }
 
@@ -185,6 +188,7 @@ class AjoutAgent extends Component {
                                             className="whitespace-no-wrap"
                                             variant="contained"
                                             onClick = { this.handleSaveAgent }
+                                            component={Link} to={'/table-agents'}
                                         >
                                             Ajouter
                                         </Button>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.example.CapAcademy.Controller.FormateurController"/>
-    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.Repositories.UserRepository"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.models.User"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.Repositories.FormationRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.common.util.impl.Log_.logger"/>
@@ -31,6 +32,7 @@
     <fullyQualifiedTypeName name="com.example.CapAcademy.models.Doc"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.codec.binary.StringUtils"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.models.contenu"/>
     <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.data.jdbc.repository.query.Modifying"/>
@@ -49,15 +51,13 @@
     <fullyQualifiedTypeName name="com.example.CapAcademy.models.Formation"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.Repositories.SeanceRepository"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.models.Seance"/>
     <fullyQualifiedTypeName name="com.example.CapAcademy.CapAcademyApplication"/>
-    <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
-    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.example.CapAcademy.Controller.FormateurController"/>
 </qualifiedTypeNameHistroy>

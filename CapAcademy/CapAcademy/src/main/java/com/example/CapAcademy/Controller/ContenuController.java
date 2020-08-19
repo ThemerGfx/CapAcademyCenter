@@ -32,12 +32,11 @@ import com.example.CapAcademy.models.contenu;
 @CrossOrigin(origins ="*")
 public class ContenuController {
 	
-
 	
 	@Autowired
 	private ContenuRepository CR ; 
 	
-	public String folderPath  = "C:\\Users\\thame\\Desktop\\CapAcademy\\CapAcademy\\Contenu\\" ; 
+	private String folderPath = "C:\\Users\\thame\\Documents\\GitHub\\CapAcademyCenter\\CapAcademy\\CapAcademy\\CV\\" ; 
 	
 	
 	@RequestMapping(value="/UploadC/{formation}/{idFormation}", method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -52,7 +51,7 @@ public class ContenuController {
 				convertFile.createNewFile();
 				FileOutputStream fout = new FileOutputStream(folderPath+random+file.getOriginalFilename());
 				fout.write(file.getBytes());	
-				contenu doc = new contenu(random+file.getOriginalFilename(),file.getOriginalFilename(),idFormation);
+				contenu doc = new contenu(random+file.getOriginalFilename(),formation,idFormation);
 				CR.save(doc);
 				fout.close();
 				return new ResponseEntity<>("File is uploaded successfully", HttpStatus.OK);
@@ -62,17 +61,24 @@ public class ContenuController {
 	}
 	
 	
+	
 
 	 @GetMapping(value = "/Contenus", produces = MediaType.APPLICATION_JSON_VALUE)
 		public List<contenu> getContenus() {
-			return CR.findAll() ; 
+			
+			return CR.affichage();  
 			
 		}
 	 
 	
+		@RequestMapping(value="/Contenu/{id}" , method=RequestMethod.DELETE)
+		public boolean  deleteContenu(@PathVariable Long id ) {
+			
+			  CR.deleteAll(CR.deletecontenusbyIdFormation(id)) ;
+			  return true ; 
+		}
 		
-		
-		
+
 		@RequestMapping("/contenuDownload/{name}")
 		@ResponseBody
 		public void show(@PathVariable("name") String fileName , HttpServletResponse response) {
@@ -106,11 +112,6 @@ public class ContenuController {
 		    	  
 		      }
 		}
-		
-		
-		
-		
-	
-	
-	
+	 
+
 }

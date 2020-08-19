@@ -17,6 +17,13 @@ const rows = [
         sort          : true
     },
     {
+        id            : 'email',
+        align         : 'left',
+        disablePadding: false,
+        label         : 'Email',
+        sort          : true
+    },
+    {
         id            : 'etat',
         align         : 'left',
         disablePadding: false,

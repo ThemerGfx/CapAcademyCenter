@@ -63,7 +63,7 @@ class Register2Page extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="primary" className="font-dark">
-                            Bienvenue au CapAcademy
+                            Bienvenue au Cap Academy
                         </Typography>
                     </FuseAnimate>
                 </div>
@@ -168,7 +168,7 @@ class Register2Page extends Component {
                             <div className="flex flex-col items-center justify-center pt-32 pb-24">
                                 <span className="font-medium">Vous avez déjà un compte?</span>
                                 <br/>
-                                <Link className="font-medium" to="/Login">Se CONNECTER</Link>
+                                <Link className="font-medium" to="/Login">SE CONNECTER</Link>
                             </div>
 
                         </CardContent>

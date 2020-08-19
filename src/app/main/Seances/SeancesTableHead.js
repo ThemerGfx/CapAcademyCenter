@@ -10,13 +10,6 @@ import {
 
 const rows = [
     {
-        id            : 'admin',
-        align         : 'left',
-        disablePadding: false,
-        label         : 'Admin',
-        sort          : true
-    },
-    {
         id            : 'nameFormation',
         align         : 'left',
         disablePadding: false,

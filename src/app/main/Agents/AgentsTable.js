@@ -6,7 +6,8 @@ import {
     TableBody, 
     TableCell, 
     TableRow,
-    Fab
+    Fab,
+    TablePagination
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {FuseAnimate} from '@fuse';
@@ -32,7 +33,8 @@ class AgentsTable extends Component {
         idAdmin: '',
         dateDajout: '',
         allAgents: '',
-        loader: true
+        page       : 0,
+        rowsPerPage: 10
     };
 
     componentDidMount()
@@ -61,12 +63,29 @@ class AgentsTable extends Component {
         this.setState({chatsMoreMenuEl: event.currentTarget});
     };
 
+    handleChangePage = (event, page) => {
+        this.setState({page});
+    };
+
+    handleChangeRowsPerPage = event => {
+        this.setState({rowsPerPage: event.target.value});
+    };
+
     render()
     {
         const { chatsMoreMenuEl } = this.state;
-        const agentsFetched = this.props.allAgents
+
+        const agentsFetched = this.props.allAgents.filter(
+            (agentToFilter) => {
+                return (
+                    agentToFilter.nom.toLowerCase().indexOf(this.props.text.toLowerCase()) !== -1 
+                )
+            }
+        )
+
         return (
                 <div className="w-full flex flex-col" delay={1000}>
+
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
                         <Table className="min-w-xl" aria-labelledby="tableTitle">
                             <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -75,16 +94,16 @@ class AgentsTable extends Component {
                             <FuseAnimate animation="transition.whirlIn" delay={400} className="flex-grow overflow-x-auto">
                                 <TableBody>
                                     { 
-                                        this.props.allAgents.map((agent, index) => {
+                                        agentsFetched.map((agent, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
 
                                                 <TableCell component="td" scope="row" align="left">
-                                                    {agent.prenom}
+                                                    {agent.nom}
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
-                                                    {agent.nom}
+                                                    {agent.prenom}
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
@@ -149,6 +168,22 @@ class AgentsTable extends Component {
                             </FuseAnimate>
                         </Table>
                     </FuseAnimate>
+
+                    <TablePagination
+                        component="div"
+                        count={this.props.allAgents.length}
+                        rowsPerPage={this.state.rowsPerPage}
+                        page={this.state.page}
+                        backIconButtonProps={{
+                            'aria-label': 'Previous Page'
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'Next Page'
+                        }}
+                        onChangePage={this.handleChangePage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
+
                 </div>
             );
         }
@@ -157,7 +192,7 @@ class AgentsTable extends Component {
 const mapStateToProps = (state) => {
     return {        
         allAgents: state.agentReducer.allAgents,
-
+        text: state.searchReducer.text
     }
 }
 

@@ -4,7 +4,7 @@ let allDemandes = []
 
 export const getAllDemandes = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/Demande")
+      fetch("http://backcapformation.com/Demande")
       .then((res) => 
         res.json()
       )
@@ -25,7 +25,7 @@ export const getAllDemandesSuccess = (allDemandes) => (
 
 export const updateDemande = (demande) => {
   return (dispatch) => {
-    axios.put(`http://localhost:8080//Demande/${demande.id}`, { ...demande })
+    axios.put(`http://backcapformation.com//Demande/${demande.id}`, { ...demande })
     .then(() => {
       dispatch({
         type: "UPDATE_DEMANDE"

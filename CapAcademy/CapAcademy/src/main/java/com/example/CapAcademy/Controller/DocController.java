@@ -36,7 +36,7 @@ public class DocController {
 	
 	@Autowired
 	private DocRepository docRepository;
-	public String folderPath = "C:/Users/thame/Desktop/CapAcademy/CapAcademy/CV/" ; 
+	public String folderPath = "C:\\Users\\thame\\Documents\\GitHub\\CapAcademyCenter\\CapAcademy\\CapAcademy\\CV\\" ; 
 	
 	@RequestMapping(value="/UploadF", method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 
@@ -50,7 +50,7 @@ public class DocController {
 				convertFile.createNewFile();
 				FileOutputStream fout = new FileOutputStream(folderPath+random+file.getOriginalFilename());
 				fout.write(file.getBytes());	
-				Doc doc = new Doc(33,random+file.getOriginalFilename(),"dd");
+				Doc doc = new Doc(FormateurController.LastIdValue,random+file.getOriginalFilename(),"dd");
 				docRepository.save(doc);
 				fout.close();
 				return new ResponseEntity<>("File is uploaded successfully", HttpStatus.OK);
@@ -61,14 +61,14 @@ public class DocController {
 	
 	
 
-
 	
-	public String CvbyId( long id ) {
+	@GetMapping("fileName/{id}")
+	public String CvbyId(@PathVariable long id ) {
 		
 		
 		 return docRepository.findCv(id).get(0).getDocName(); 
 	}
-
+ 
 	
 	
 
@@ -116,12 +116,11 @@ public class DocController {
 	
 	
 	
-	
 
 
 	
 	
-	/*
+	
 
 	
 	@RequestMapping("/files")
@@ -132,7 +131,7 @@ public class DocController {
 		
 		return listOfFiles;
 	}
-	*/
+	
 	
 
 	

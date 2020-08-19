@@ -9,6 +9,8 @@ import {FuseAnimate, FusePageCarded} from '@fuse';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import history from '../../../history'
+
 import { createSeance } from '../../store/actions/SeanceActions/SeanceActions'
 import { getAllFormateurs,getAllFormateursSuccess } from '../../store/actions/FormateurActions/FormateurActions'
 import { getAllFormations, getAllFormationsSuccess } from '../../store/actions/FormationActions/FormationActions'
@@ -65,6 +67,7 @@ class AjoutSeance extends Component {
                 urlSeance: '',
                 dateSeance: ''
             })
+            history.push('/table-seances')
     }
     
     render()

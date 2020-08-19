@@ -4,7 +4,7 @@ let allSeances = []
 
 export const createSeance = (seance, id, formateur) => { 
   return (dispatch) => { 
-      axios.post('http://localhost:8080/Seance/' + id + '/' + formateur , seance)
+      axios.post('http://backcapformation.com/Seance/' + id + '/' + formateur , seance)
         .then((res) => {
           if (res.status === 200) {
             return {
@@ -24,7 +24,7 @@ export const createSeance = (seance, id, formateur) => {
 
 export const removeSeance = (id) => {
   return (dispatch) => {
-    axios.delete('http://localhost:8080/Agent/' + id)
+    axios.delete('http://backcapformation.com/Agent/' + id)
     .then(() => {
       console.log(id)
       dispatch({
@@ -38,7 +38,7 @@ export const removeSeance = (id) => {
 
 export const getAllSeances = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/Seances")
+      fetch("http://backcapformation.com/Seances")
       .then((res) => 
         res.json()
       )

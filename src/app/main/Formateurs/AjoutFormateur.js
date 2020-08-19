@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { post } from 'axios';
 
+import history from '../../../history'
+
 import { createFormateur } from '../../store/actions/FormateurActions/FormateurActions'
 
 class AjoutFormateur extends Component {
@@ -59,11 +61,12 @@ class AjoutFormateur extends Component {
                 specialite: '',
                 file: null
             })
+            history.push('/table-formateurs')
         }
     }
 
     uploadFile = (file) =>{
-        const url = "http://localhost:8080/UploadF"
+        const url = "http://backcapformation.com/UploadF"
 
         const formData = new FormData();
         formData.append("file", file)
@@ -119,6 +122,7 @@ class AjoutFormateur extends Component {
                                     className="whitespace-no-wrap"
                                     variant="contained"
                                     onClick = { this.handleSaveFormateur }
+                                    component={Link} to="/table-formateurs"
                                 >
                                     Ajouter
                                 </Button>

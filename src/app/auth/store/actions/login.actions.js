@@ -5,7 +5,7 @@ import * as Actions from 'app/store/actions';
 
 export const loginUser = (email, password) => { 
     return (dispatch) => { 
-        axios.get('http://localhost:8080/Login/' + email + '/' + password)
+        axios.get('http://backcapformation.com/Login/' + email + '/' + password)
           .then((res) => {
             if (res.data.id !== null) {
                 history.push('/table-agents')
@@ -13,7 +13,7 @@ export const loginUser = (email, password) => {
 
           if (res.data.id === null) {       
             store.dispatch(Actions.showMessage({
-              message     : 'login ghalet',//text or html
+              message     : 'erreur login',//text or html
               autoHideDuration: 6000,//ms
               anchorOrigin: {
                   vertical  : 'top',//top bottom

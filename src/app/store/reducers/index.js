@@ -9,6 +9,7 @@ import formationReducer from './FormationReducers/FormationReducers'
 import contenuReducer from './ContenuReducers/ContenuReducers'
 import seanceReducer from '../reducers/SeanceReducers/SeanceReducers'
 import demandeReducer from '../reducers/DemandeReducers/DemandeReducers'
+import searchReducer from '../reducers/SearchReducers/SearchReducers'
 import authReducers from '../../auth/store/reducers/index'
 
 const createReducer = (asyncReducers) =>
@@ -23,6 +24,7 @@ const createReducer = (asyncReducers) =>
         contenuReducer,
         seanceReducer,
         demandeReducer,
+        searchReducer,
         authReducers
     });
 

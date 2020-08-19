@@ -93,7 +93,7 @@ public class FormationController {
 				
 				List<Formation> listResult = new ArrayList<Formation>() ;
 				
-				for (int i = 0; i < 3 ; i++) {
+				for (int i = 0; i < 6 ; i++) {
 					
 					listResult.add(FR.findAll().get(i)) ; 
 					

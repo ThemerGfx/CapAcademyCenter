@@ -6,7 +6,8 @@ import {
     TableCell, 
     TableRow,
     Fab, 
-    Icon
+    Icon,
+    TablePagination
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import SeancesTableHead from './SeancesTableHead';
@@ -29,7 +30,8 @@ class SeancesTable extends Component {
         urlSeance: '',
         dateSeance: '',
         allSeances: '',
-        loader: true
+        page       : 0,
+        rowsPerPage: 10
     };
 
     componentDidMount()
@@ -58,9 +60,23 @@ class SeancesTable extends Component {
         this.setState({chatsMoreMenuEl: event.currentTarget});
     };
 
+    handleChangePage = (event, page) => {
+        this.setState({page});
+    };
+
+    handleChangeRowsPerPage = event => {
+        this.setState({rowsPerPage: event.target.value});
+    };
+
+
     render()
     {
         const { chatsMoreMenuEl } = this.state;
+        const seancesFetched = this.props.allSeances.filter(
+            (seanceToFilter) => {
+                return seanceToFilter.nameFormation.indexOf(this.props.text) !== -1
+            }
+        )
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -71,13 +87,9 @@ class SeancesTable extends Component {
                             <FuseAnimate animation="transition.whirlIn" delay={400} className="flex-grow overflow-x-auto">
                                 <TableBody>
                                     { 
-                                        this.props.allSeances.map((seance, index) => {
+                                        seancesFetched.map((seance, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
-
-                                                <TableCell component="td" scope="row" align="left">
-                                                    {seance.admin}
-                                                </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {seance.nameFormation}
@@ -92,7 +104,7 @@ class SeancesTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell>
-                                                    <a href={"http://localhost:8080/file/" + seance.id}  >
+                                                    <a href={"https://meet.jit.si/" + seance.urlSeance} target="_blank" >
                                                         Accéder
                                                     </a>
                                                 </TableCell>
@@ -120,6 +132,22 @@ class SeancesTable extends Component {
                             </FuseAnimate>
                         </Table>
                     </FuseAnimate>
+                    
+                    <TablePagination
+                        component="div"
+                        count={this.props.allSeances.length}
+                        rowsPerPage={this.state.rowsPerPage}
+                        page={this.state.page}
+                        backIconButtonProps={{
+                            'aria-label': 'Previous Page'
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'Next Page'
+                        }}
+                        onChangePage={this.handleChangePage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
+
                 </div>
             );
         }
@@ -127,8 +155,8 @@ class SeancesTable extends Component {
 
 const mapStateToProps = (state) => {
     return {        
-        allSeances: state.seanceReducer.allSeances
-
+        allSeances: state.seanceReducer.allSeances,
+        text: state.searchReducer.text
     }
 }
 

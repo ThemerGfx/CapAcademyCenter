@@ -9,7 +9,7 @@ export const UploadFile = (file) => {
 export const createFormateur = (formateur) => { 
   return (dispatch) => { 
 
-      axios.post('http://localhost:8080/Formateur', formateur)
+      axios.post('http://backcapformation.com/Formateur', formateur)
         .then((res) => {
           if (res.status === 200) {
             return {
@@ -29,7 +29,7 @@ export const createFormateur = (formateur) => {
 
 export const removeFormateur = (id) => {
   return (dispatch) => {
-    axios.delete('http://localhost:8080/Formateur/' + id)
+    axios.delete('http://backcapformation.com/Formateur/' + id)
     .then(() => {
       console.log(id)
       dispatch({
@@ -50,7 +50,7 @@ export const selectFormateur = (formateur) => {
 
 export const updateFormateur = (formateur) => {
   return (dispatch) => {
-    axios.put(`http://localhost:8080/Formateur/${formateur.id}`, { ...formateur })
+    axios.put(`http://backcapformation.com/Formateur/${formateur.id}`, { ...formateur })
     .then(() => {
       dispatch({
         type: "UPDATE_FORMATEUR"
@@ -62,7 +62,7 @@ export const updateFormateur = (formateur) => {
 
 export const getAllFormateurs = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/Formateurs")
+      fetch("http://backcapformation.com/Formateurs")
       .then((res) => 
         res.json()
       )
@@ -83,7 +83,7 @@ export const getAllFormateursSuccess = (allFormateurs) => (
 export const getCv = (id) => {
   return (dispatch) => {
     // const method = 'GET';
-    // const url = "http://localhost:8080/GetCvById/" + id;
+    // const url = "http://backcapformation.com/GetCvById/" + id;
 
     // axios.request({
     //     url,
@@ -103,7 +103,7 @@ export const getCv = (id) => {
     //     link.click();
     //     link.remove();
     //   });
-    axios.get("http://localhost:8080/file/" + id)
+    axios.get("http://backcapformation.com/file/" + id)
     .then((res) => 
       console.log(res)
     )

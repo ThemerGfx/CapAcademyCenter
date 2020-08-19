@@ -67,7 +67,7 @@ class AjoutContenu extends Component {
         let contNom = this.props.formationItem.name
         let contId = this.props.formationItem.id
 
-        const url = 'http://localhost:8080/UploadC/' + contNom + '/' + contId
+        const url = 'http://backcapformation.com/UploadC/' + contNom + '/' + contId
         const formData = new FormData();
         formData.append("file", file)
 

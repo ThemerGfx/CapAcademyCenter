@@ -6,7 +6,8 @@ import {
     TableCell, 
     TableRow,
     Fab, 
-    Icon
+    Icon,
+    TablePagination
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import FormateursTableHead from './FormateursTableHead';
@@ -31,7 +32,8 @@ class FormateursTable extends Component {
         idAdmin: '',
         dateDajout: '',
         allFormateurs: '',
-        loader: true
+        page       : 0,
+        rowsPerPage: 10
     };
 
     componentDidMount()
@@ -60,9 +62,22 @@ class FormateursTable extends Component {
         this.setState({chatsMoreMenuEl: event.currentTarget});
     };
 
+    handleChangePage = (event, page) => {
+        this.setState({page});
+    };
+
+    handleChangeRowsPerPage = event => {
+        this.setState({rowsPerPage: event.target.value});
+    };
+
     render()
     {
         const { chatsMoreMenuEl } = this.state;
+        const formateursFetched = this.props.allFormateurs.filter(
+            (formateurToFilter) => {
+                return formateurToFilter.prenom.toLowerCase().indexOf(this.props.text.toLowerCase()) !== -1
+            }
+        )
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
@@ -73,7 +88,7 @@ class FormateursTable extends Component {
                             <FuseAnimate animation="transition.whirlIn" delay={400} className="flex-grow overflow-x-auto">
                                 <TableBody>
                                     { 
-                                        this.props.allFormateurs.map((formateur, index) => {
+                                        formateursFetched.map((formateur, index) => {
                                             return (
                                             <TableRow className="h-64" hover key={index}>
 
@@ -110,7 +125,7 @@ class FormateursTable extends Component {
 
                                                 <TableCell>
 
-                                                    <a href={"http://localhost:8080/file/" + formateur.id}  >
+                                                    <a href={"http://backcapformation.com/file/" + formateur.id}  >
                                                        download
                                                     </a>
                                                 </TableCell>
@@ -124,6 +139,22 @@ class FormateursTable extends Component {
                             </FuseAnimate>
                         </Table>
                     </FuseAnimate>
+
+                    <TablePagination
+                        component="div"
+                        count={this.props.allFormateurs.length}
+                        rowsPerPage={this.state.rowsPerPage}
+                        page={this.state.page}
+                        backIconButtonProps={{
+                            'aria-label': 'Previous Page'
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'Next Page'
+                        }}
+                        onChangePage={this.handleChangePage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
+                    
                 </div>
             );
         }
@@ -131,8 +162,8 @@ class FormateursTable extends Component {
 
 const mapStateToProps = (state) => {
     return {        
-        allFormateurs: state.formateurReducer.allFormateurs
-
+        allFormateurs: state.formateurReducer.allFormateurs,
+        text: state.searchReducer.text
     }
 }
 

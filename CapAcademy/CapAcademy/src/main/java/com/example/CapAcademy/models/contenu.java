@@ -76,8 +76,7 @@ public class contenu implements Serializable {
 	public contenu() {
 		super();
 	}
-
-
+	
 	
 	
 

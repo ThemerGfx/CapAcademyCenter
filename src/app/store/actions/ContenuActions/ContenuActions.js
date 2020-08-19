@@ -4,7 +4,7 @@ let allContenus = []
 
 export const getAllContenus = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/Contenus")
+      fetch("http://backcapformation.com/Contenus")
       .then((res) => 
         res.json()
       )

@@ -4,7 +4,8 @@ import {
     Table, 
     TableBody, 
     TableCell, 
-    TableRow
+    TableRow,
+    TablePagination
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import ContenuTableHead from './ContenuTableHead';
@@ -22,7 +23,8 @@ class ContenuTable extends Component {
         description: '',
         formation: '',
         allContenus: '',
-        loader: true
+        page       : 0,
+        rowsPerPage: 10
     };
 
     componentDidMount()
@@ -51,6 +53,14 @@ class ContenuTable extends Component {
         this.setState({chatsMoreMenuEl: event.currentTarget});
     };
 
+    handleChangePage = (event, page) => {
+        this.setState({page});
+    };
+
+    handleChangeRowsPerPage = event => {
+        this.setState({rowsPerPage: event.target.value});
+    };
+
     render()
     {
         const { chatsMoreMenuEl } = this.state;
@@ -69,7 +79,7 @@ class ContenuTable extends Component {
                                             <TableRow className="h-64" hover>
 
                                                 <TableCell component="td" scope="row" align="left">
-                                                    {contenu.description}
+                                                    {contenu.name}
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">
@@ -77,7 +87,7 @@ class ContenuTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell>
-                                                    <a href={"http://localhost:8080/contenuDownload/" + contenu.name}  >
+                                                    <a href={"http://backcapformation.com/contenuDownload/" + contenu.name}  >
                                                        download
                                                     </a>
                                                 </TableCell>
@@ -89,6 +99,22 @@ class ContenuTable extends Component {
                             </FuseAnimate>
                         </Table>
                     </FuseAnimate>
+                    
+                    <TablePagination
+                        component="div"
+                        count={this.props.allContenus.length}
+                        rowsPerPage={this.state.rowsPerPage}
+                        page={this.state.page}
+                        backIconButtonProps={{
+                            'aria-label': 'Previous Page'
+                        }}
+                        nextIconButtonProps={{
+                            'aria-label': 'Next Page'
+                        }}
+                        onChangePage={this.handleChangePage}
+                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    />
+
                 </div>
             );
         }

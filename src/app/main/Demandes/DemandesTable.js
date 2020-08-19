@@ -22,6 +22,7 @@ class DemandesTable extends Component {
         id: '',
         name: '',
         etat: '',
+        email: '',
         allDemandes: ''
     };
 
@@ -67,6 +68,10 @@ class DemandesTable extends Component {
 
                                                 <TableCell component="td" scope="row" align="left">
                                                     {demande.formation}
+                                                </TableCell>
+
+                                                <TableCell component="td" scope="row" align="left">
+                                                    {demande.email}
                                                 </TableCell>
 
                                                 <TableCell component="td" scope="row" align="left">

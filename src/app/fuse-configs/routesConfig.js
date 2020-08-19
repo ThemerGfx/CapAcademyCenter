@@ -7,7 +7,6 @@ import {LoginConfig} from '../auth/LoginConfig'
 import {Register2PageConfig} from '../auth/Register2PageConfig'
 import {AjoutFormationConfig} from '../main/Formations/AjoutFormationConfig'
 import {ContenuConfig} from '../main/Contenu/ContenuConfig'
-import {BanqueCvsConfig} from '../main/BanqueCvs/BanqueCvsConfig'
 import {AjoutSeancesConfig} from '../main/Seances/AjoutSeancesConfig'
 import {FormationFormateurConfig} from '../main/template/FormationFormateurConfig'
 import {DemandesConfig} from '../main/Demandes/DemandesConfig'
@@ -19,7 +18,6 @@ const routeConfigs = [
     AjoutFormateurConfig,
     AjoutFormationConfig,
     ContenuConfig,
-    BanqueCvsConfig,
     AjoutSeancesConfig,
     FormationFormateurConfig,
     DemandesConfig

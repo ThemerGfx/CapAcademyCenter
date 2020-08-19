@@ -5,7 +5,7 @@ let allFormations = []
 export const createFormation = (formation) => { 
   return (dispatch) => { 
 
-      axios.post('http://localhost:8080/Formation', formation)
+      axios.post('http://backcapformation.com/Formation', formation)
         .then((res) => {
           if (res.status === 200) {
             return {
@@ -25,7 +25,7 @@ export const createFormation = (formation) => {
 
 export const removeFormation = (id) => {
   return (dispatch) => {
-    axios.delete('http://localhost:8080/Formation/' + id)
+    axios.delete('http://backcapformation.com/Formation/' + id)
     .then(() => {
       console.log(id)
       dispatch({
@@ -47,7 +47,7 @@ export const selectFormation = (formation) => {
 export const updateFormaion = (formation) => {
   return (dispatch) => {
     console.log(formation)
-   axios.put(`http://localhost:8080/Formation/${formation.id}`, { ...formation })
+   axios.put(`http://backcapformation.com/Formation/${formation.id}`, { ...formation })
     .then(() => {
       dispatch({
         type: "UPDATE_FORMATION"
@@ -59,7 +59,7 @@ export const updateFormaion = (formation) => {
 
 export const getAllFormations = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/Formations")
+      fetch("http://backcapformation.com/Formations")
       .then((res) => 
         res.json()
       )

@@ -9,6 +9,8 @@ import {FuseAnimate, FusePageCarded} from '@fuse';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import history from '../../../history'
+
 import { createFormation, updateFormaion } from '../../store/actions/FormationActions/FormationActions'
 
 import { getAllFormateurs } from '../../store/actions/FormateurActions/FormateurActions'
@@ -125,6 +127,7 @@ class AjoutFormation extends Component {
                 formateur: '',
                 type: ''
             })
+            history.push('/table-formations')
     }
     
     handleUpdateFormation = () =>{

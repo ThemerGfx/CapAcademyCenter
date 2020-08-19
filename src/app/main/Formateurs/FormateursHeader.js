@@ -2,39 +2,87 @@ import React from 'react';
 import {
     Button, 
     Icon, 
-    Typography
+    Typography,
+    MuiThemeProvider,
+    Paper,
+    Input
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-const FormateursHeader = ({setSearchText, searchText, mainTheme, props}) => {
+import {searchItem} from '../../store/actions/SearchActions/SearchActions'
 
-    return (
-        <div className="flex flex-1 w-full items-center justify-between">
+class FormateursHeader extends React.Component {
 
-            <div className="flex items-center">
-                <FuseAnimate animation="transition.expandIn" delay={300}>
-                    <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
-                </FuseAnimate>
-                <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                    <Typography className="hidden sm:flex" variant="h6">Formateurs</Typography>
+    constructor() {
+        super();
+        this.state = {
+            search: ''
+        };
+    }
+
+    onChange = e => {
+        this.props.searchItem(e.target.value);
+    };
+
+    render() {
+        
+        let mainTheme = this.props.mainTheme
+        let searchText = this.props.searchText
+
+        return (
+            <div className="flex flex-1 w-full items-center justify-between">
+
+                <div className="flex items-center">
+                    <FuseAnimate animation="transition.expandIn" delay={300}>
+                        <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
+                    </FuseAnimate>
+                    <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                        <Typography className="hidden sm:flex" variant="h6">Formateurs</Typography>
+                    </FuseAnimate>
+                </div>
+
+                <div className="flex flex-1 items-center justify-center px-12">
+
+                    <MuiThemeProvider theme={mainTheme}>
+                        <FuseAnimate animation="transition.slideDownIn" delay={300}>
+                            <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
+
+                                <Icon className="mr-8" color="action">search</Icon>
+
+                                <Input
+                                    placeholder="Search"
+                                    className="flex flex-1"
+                                    disableUnderline
+                                    fullWidth
+                                    value={searchText}
+                                    inputProps={{
+                                        'aria-label': 'Search'
+                                    }}
+                                    onChange={this.onChange}
+                                />
+                            </Paper>
+                        </FuseAnimate>
+                    </MuiThemeProvider>
+
+                </div>
+
+                <FuseAnimate animation="transition.slideRightIn" delay={300}>
+                    <Button component={Link} to="/ajout-formateur/add" className="whitespace-no-wrap" variant="contained">
+                        <span className="hidden sm:flex">Ajouter un formateur</span>
+                    </Button>
                 </FuseAnimate>
             </div>
-            <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                <Button component={Link} to="/ajout-formateur/add" className="whitespace-no-wrap" variant="contained">
-                    <span className="hidden sm:flex">Ajouter un formateur</span>
-                </Button>
-            </FuseAnimate>
-        </div>
-    );
-};
+        );
+    };
+}
 
-const mapStateToProps = ({fuse}) =>
+const mapStateToProps = (state) =>
 {
     return {
-        mainTheme : fuse.settings.mainTheme
+        text : state.searchReducer.text
     }
 }
 
-export default connect(mapStateToProps)(FormateursHeader);
+export default connect(mapStateToProps, {searchItem})(FormateursHeader);

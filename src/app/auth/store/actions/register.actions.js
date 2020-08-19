@@ -4,7 +4,7 @@ let allUsers = []
 
 export const registerUser = (user) => { 
     return (dispatch) => { 
-        axios.post('http://localhost:8080/AddUser', user)
+        axios.post('http://backcapformation.com/AddUser', user)
           .then((res) => {
             if (res.status === 200) {
               return {

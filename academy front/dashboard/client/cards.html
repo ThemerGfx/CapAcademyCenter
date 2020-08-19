@@ -107,7 +107,7 @@ function drawRow(rowData) {
             datatype:"jsonp",
             contentType: "application/json;charset=utf-8",
             processData: true,
-            url: "http://localhost:8080/Formations",
+            url: "http://backcapformation.com/Formations",
             success: function (data) {
                 res.push(data);
                 array(res);
@@ -145,7 +145,7 @@ function inscrire(idF , NameF ) {
 
 $.ajax({
     type: "POST",
-    url: "http://localhost:8080/AddDemande/"+idF+"/"+NameF,
+    url: "http://backcapformation.com/AddDemande/"+idF+"/"+NameF,
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function(data){

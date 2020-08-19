@@ -4,7 +4,7 @@ let allAgents = []
 
 export const createAgent = (agent) => { 
   return (dispatch) => { 
-      axios.post('http://localhost:8080/Agent', agent)
+      axios.post('http://backcapformation.com/Agent', agent)
         .then((res) => {
           if (res.status === 200) {
             return {
@@ -24,7 +24,7 @@ export const createAgent = (agent) => {
 
 export const removeAgent = (id) => {
   return (dispatch) => {
-    axios.delete('http://localhost:8080/Agent/' + id)
+    axios.delete('http://backcapformation.com/Agent/' + id)
     .then(() => {
       console.log(id)
       dispatch({
@@ -45,7 +45,7 @@ export const selectAgent = (agent) => {
 
 export const updateAgent = (agent) => {
   return (dispatch) => {
-    axios.put(`http://localhost:8080/Agent/${agent.id}`, { ...agent })
+    axios.put(`http://backcapformation.com/Agent/${agent.id}`, { ...agent })
     .then(() => {
       dispatch({
         type: "UPDATE_AGENT"
@@ -57,7 +57,7 @@ export const updateAgent = (agent) => {
 
 export const getAllAgents = () => {
     return (dispatch) => {
-      fetch("http://localhost:8080/AffAgents")
+      fetch("http://backcapformation.com/AffAgents")
       .then((res) => 
         res.json()
       )
@@ -70,7 +70,7 @@ export const getAllAgents = () => {
 }
 export const getAllAgentsSuccess = (allAgents) => (
   {
-    type:'GET_ALL_AGENTS_SUCCESS',
+    type: 'GET_ALL_AGENTS_SUCCESS',
     payload: allAgents
   }
 )
