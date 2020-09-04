@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Button, 
     Icon, 
     Typography,
     MuiThemeProvider,
@@ -9,7 +8,6 @@ import {
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 
 import {searchItem} from '../../store/actions/SearchActions/SearchActions'
 

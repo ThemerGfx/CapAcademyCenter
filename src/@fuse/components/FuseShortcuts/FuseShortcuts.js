@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {withStyles, Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography} from '@material-ui/core';
-import * as UserActions from 'app/auth/store/actions';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseUtils, FuseAnimateGroup} from '@fuse';
 import {Link} from 'react-router-dom';
@@ -78,17 +76,10 @@ class FuseShortcuts extends Component {
         this.setState({searchResults: null});
     };
 
-    toggleInShortcuts = (id) => {
-        let shortcuts = [...this.props.shortcuts];
-        shortcuts = shortcuts.includes(id) ? shortcuts.filter(_id => id !== _id) : [...shortcuts, id];
-        //this.props.updateUserShortcuts(shortcuts);
-    };
-
     render()
     {
-        const {classes, shortcuts, navigation, variant, className} = this.props;
+        const {classes, variant, className} = this.props;
         const {addMenu, searchText, searchResults} = this.state;
-        const shortcutItems = shortcuts ? shortcuts.map(id => FuseUtils.findById(navigation, id)) : [];
 
         function ShortcutMenuItem({item, onToggle})
         {
@@ -113,7 +104,6 @@ class FuseShortcuts extends Component {
                                 onToggle(item.id);
                             }}
                         >
-                            {/* <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon> */}
                         </IconButton>
                     </MenuItem>
                 </Link>
@@ -129,23 +119,6 @@ class FuseShortcuts extends Component {
                     }}
                     className={classNames("flex flex-1", variant === "vertical" && "flex-col")}
                 >
-                    {shortcutItems.map(item => item && (
-                        <Link to={item.url} key={item.id} className={classes.item}>
-                            <Tooltip title={item.title} placement={variant === "horizontal" ? "bottom" : "left"}>
-                                <IconButton className="w-40 h-40 p-0">
-                                    {item.icon ?
-                                        (
-                                            <Icon>{item.icon}</Icon>
-                                        ) :
-                                        (
-                                            <span className="text-20 font-bold uppercase">{item.title[0]}</span>
-                                        )
-                                    }
-                                </IconButton>
-                            </Tooltip>
-                        </Link>
-                    ))}
-
                     <Tooltip title="Click to add/remove shortcut" placement={variant === "horizontal" ? "bottom" : "left"}>
                         <IconButton
                             className="w-40 h-40 p-0"
@@ -192,43 +165,26 @@ class FuseShortcuts extends Component {
                         <ShortcutMenuItem
                             key={item.id}
                             item={item}
-                            onToggle={() => this.toggleInShortcuts(item.id)}
                         />
                     ))}
 
                     {searchText.length !== 0 && searchResults.length === 0 && (
                         <Typography color="textSecondary" className="p-16 pb-8">No results..</Typography>
                     )}
-
-                    {searchText.length === 0 && shortcutItems.map(item => item && (
-                        <ShortcutMenuItem
-                            key={item.id}
-                            item={item}
-                            onToggle={() => this.toggleInShortcuts(item.id)}
-                        />
-                    ))}
                 </Menu>
             </div>
         );
     }
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        //updateUserShortcuts: UserActions.updateUserShortcuts
-    }, dispatch);
-}
-
 function mapStateToProps({fuse, auth})
 {
     return {
         navigation: fuse.navigation,
-        //shortcuts : auth.user.data.shortcuts
     }
 }
 
 FuseShortcuts.propTypes = propTypes;
 FuseShortcuts.defaultProps = defaultProps;
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(FuseShortcuts));
+export default withStyles(styles)(connect(mapStateToProps)(FuseShortcuts));

@@ -11,11 +11,6 @@ import {setUserDataFirebase} from 'app/auth/store/actions/user.actions'
 
 class Auth extends Component {
     
-    constructor(props)
-    {
-        super(props);
-        // this.firebaseCheck();
-    }
 
     onAuthStateChanged = (callback) => {
         if ( !this.auth )

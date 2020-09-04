@@ -42,20 +42,8 @@ class AjoutSeance extends Component {
 
     handleSaveFormateur = (e) => {
         e.preventDefault();
-        const 
-            {  
-                id,
-                admin,
-                idformateur,
-                idformation,
-                nameFormateur,
-                nameFormation,
-                urlSeance,
-                dateSeance
-            } = this.state
             
             this.props.createSeance(this.state, this.props.formationItem.id, this.props.formationItem.formateur)
-
 
             this.setState({
                 id: '',

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import { Button, Card, CardContent, Checkbox, Divider, FormControl, FormControlLabel, TextField, Typography} from '@material-ui/core';
+import { Button, Card, CardContent, Divider, TextField, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {Link, Redirect} from 'react-router-dom';
-import _ from '@lodash';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from './logo.png'
 

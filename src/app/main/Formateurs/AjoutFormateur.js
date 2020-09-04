@@ -38,7 +38,6 @@ class AjoutFormateur extends Component {
         e.preventDefault();
         const 
             {  
-                id,
                 nom,
                 prenom,
                 phone,

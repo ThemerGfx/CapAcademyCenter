@@ -9,7 +9,7 @@ import {
     Input
 } from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {connect, ReactReduxContext} from 'react-redux';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import {searchItem} from '../../store/actions/SearchActions/SearchActions'

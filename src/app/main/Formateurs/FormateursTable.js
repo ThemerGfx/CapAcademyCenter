@@ -72,7 +72,6 @@ class FormateursTable extends Component {
 
     render()
     {
-        const { chatsMoreMenuEl } = this.state;
         const formateursFetched = this.props.allFormateurs.filter(
             (formateurToFilter) => {
                 return formateurToFilter.prenom.toLowerCase().indexOf(this.props.text.toLowerCase()) !== -1

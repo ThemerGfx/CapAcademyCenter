@@ -296,7 +296,7 @@ class AjoutAgent extends Component {
                                         id="speciality"
                                         name="speciality"
                                         onChange={this.handleChange}
-                                        label="Speciality"
+                                        label="Specialité"
                                         type="text"
                                         value={this.state.speciality}
                                         variant="outlined"

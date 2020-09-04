@@ -73,8 +73,6 @@ class AgentsTable extends Component {
 
     render()
     {
-        const { chatsMoreMenuEl } = this.state;
-
         const agentsFetched = this.props.allAgents.filter(
             (agentToFilter) => {
                 return (
@@ -150,7 +148,6 @@ class AgentsTable extends Component {
                                                         variant="contained"
                                                         className="text-blue color-blue"
                                                         onClick = { () => { this.props.selectAgent(agent) } } 
-                                                        className="text-blue color-blue"
                                                         component={Link} to={'/ajout-agent/' + agent.id + '/' + agent.prenom}
                                                     >      
                                                         <Icon 

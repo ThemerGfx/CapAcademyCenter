@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, TextField, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, TextField, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
-import _ from '@lodash';
 import {registerUser} from './store/actions/register.actions';
 import { connect } from 'react-redux';
 import logo from './logo.png'
@@ -57,7 +56,7 @@ class Register2Page extends Component {
                     className="flex flex-col flex-no-grow items-center text-white p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left">
 
                     <FuseAnimate animation="transition.expandIn">
-                        <img src={logo}/>
+                        <img src={logo} alt=""/>
                     </FuseAnimate>
                     <br/><br/>
 

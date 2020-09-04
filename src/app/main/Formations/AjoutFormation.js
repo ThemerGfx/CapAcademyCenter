@@ -103,18 +103,6 @@ class AjoutFormation extends Component {
 
     handleSaveFormation = (e) => {
         e.preventDefault();
-        const 
-            {  
-                id,
-                name,
-                dateDebt,
-                dateFin,
-                prix,
-                formateur,
-                type
-            } = this.state
-            
-
             
             this.props.createFormation(this.state)
 
@@ -296,7 +284,6 @@ class AjoutFormation extends Component {
                                         variant="outlined"
                                         fullWidth
                                         required
-                                        variant="outlined"
                                     >
                                         <option  selected='true'>
                                             Type Formation

@@ -71,7 +71,6 @@ class SeancesTable extends Component {
 
     render()
     {
-        const { chatsMoreMenuEl } = this.state;
         const seancesFetched = this.props.allSeances.filter(
             (seanceToFilter) => {
                 return seanceToFilter.nameFormation.indexOf(this.props.text) !== -1
@@ -104,7 +103,7 @@ class SeancesTable extends Component {
                                                 </TableCell>
 
                                                 <TableCell>
-                                                    <a href={"https://meet.jit.si/" + seance.urlSeance} target="_blank" >
+                                                    <a href={"https://meet.jit.si/" + seance.urlSeance}>
                                                         Accéder
                                                     </a>
                                                 </TableCell>

@@ -10,18 +10,6 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { post } from 'axios';
 
-const types = [
-    {
-        name: 'Aucune sélection'
-    },
-    {
-        name: 'pro'
-    },
-    {
-        name: 'educt'
-    }
-]
-
 class AjoutContenu extends Component {
 
     state = {
@@ -38,12 +26,6 @@ class AjoutContenu extends Component {
 
     handleSaveFormation = (e) => {
         e.preventDefault();
-        const 
-            {  
-                id,
-                name,
-                formation
-            } = this.state
             
             this.props.createFormation(this.state)
 

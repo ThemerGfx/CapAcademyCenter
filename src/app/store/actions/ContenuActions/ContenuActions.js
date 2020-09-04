@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 let allContenus = []
 
 export const getAllContenus = () => {

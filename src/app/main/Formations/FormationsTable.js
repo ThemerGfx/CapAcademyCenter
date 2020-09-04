@@ -10,7 +10,6 @@ import {
     TablePagination
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import {FuseAnimate} from '@fuse';
 import FormationsTableHead from './FormationsTableHead';
 
@@ -71,7 +70,6 @@ class FormationsTable extends Component {
 
     render()
     {
-        const { chatsMoreMenuEl } = this.state;
         const formationsFetched = this.props.allFormations.filter(
             (formationToFilter) => {
                 return formationToFilter.name.toLowerCase().indexOf(this.props.text.toLowerCase()) !== -1

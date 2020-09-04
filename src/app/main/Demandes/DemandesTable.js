@@ -51,7 +51,6 @@ class DemandesTable extends Component {
 
     render()
     {
-        const { chatsMoreMenuEl } = this.state;
         return (
                 <div className="w-full flex flex-col" delay={1000}>
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>

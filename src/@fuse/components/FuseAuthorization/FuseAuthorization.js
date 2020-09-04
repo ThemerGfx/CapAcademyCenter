@@ -49,8 +49,8 @@ class FuseAuthorization extends Component {
 
     redirectRoute(props)
     {
-        const {location, auth, history,authVerif } = props;
-        const {pathname, state} = location;
+        const {location, auth, history,authVerif} = props;
+        const {pathname} = location;
         
         console.log('location',location)
        

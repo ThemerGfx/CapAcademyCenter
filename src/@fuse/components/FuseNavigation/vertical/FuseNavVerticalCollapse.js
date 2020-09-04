@@ -101,7 +101,7 @@ class FuseNavVerticalCollapse extends Component
 
     render()
     {
-        const {item, nestedLevel, classes, userRole, active} = this.props;
+        const {item, nestedLevel, classes, active} = this.props;
         // if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
         // {
         //     return null;
