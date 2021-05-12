@@ -13,7 +13,7 @@
         "babel-loader": "^8.0.5",
         "babel-polyfill": "7.0.0-beta.3",
         "bootstrap": "^4.5.0",
-        "chart.js": "2.8.0",
+        "chart.js": "2.9.4",
         "date-fns": "2.0.0-alpha.27",
         "downshift": "3.2.7",
         "firebase": "5.9.1",
